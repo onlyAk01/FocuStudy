@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Error 153 Prevention: passes valid origin/referrer headers to embedded iframes -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Flocus • Aesthetic Pomodoro & Live Ambient Sanctuary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=JetBrains+Mono:wght@700;800;900&family=Orbitron:wght@700;900&family=Outfit:wght@700;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>">
+</head>
+<body>
+
+  <!-- Fullscreen Live Scenic Wallpaper Canvas -->
+  <canvas id="liveWallpaperCanvas" class="live-wallpaper-canvas"></canvas>
+
+  <!-- Live Video Background Sanctuary (Dual Engine: Native HTML5 + Mirror / YouTube) -->
+  <div id="youtubeBgContainer" class="youtube-bg-container" style="display:none;">
+    <video id="nativeBgVideo" class="native-bg-video" autoplay loop muted playsinline style="display:none;"></video>
+    <iframe id="youtubeBgIframe"
+      src=""
+      title="Live video wallpaper"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+    <div class="youtube-bg-overlay"></div>
+  </div>
+
+  <!-- Clear Mode Exit Button (Z) -->
+  <button id="btnExitClear" class="glass-pill-btn exit-clear-btn">✕ Exit Clear View (Z)</button>
+
+  <div class="flocus-app">
+    <!-- Top Flocus Floating Header -->
+    <header class="flocus-header">
+      <div class="brand-section">
+        <div class="brand-badge">☕</div>
+        <div>
+          <h1 class="greeting-text" id="userGreeting">Good morning, Aaqib Majid</h1>
+          <p class="mantra-text" id="userMantra" title="Click to cycle daily intentions">What would you like to accomplish today?</p>
+        </div>
+      </div>
+
+      <!-- Quick Floating Control Actions -->
+      <nav class="flocus-nav-actions">
+        <button id="btnViewToggle" class="glass-pill-btn" title="Toggle between Pomodoro and Ambient Clock">
+          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/></svg>
+          <span id="viewToggleLabel">Clock</span>
+        </button>
+
+        <button id="btnOpenMixer" class="glass-pill-btn" title="Layerable Ambient Sound Mixer">
+          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+          <span>Sounds</span>
+          <span id="activeSoundsCount" class="active-count-badge" style="display:none;">0</span>
+        </button>
+
+        <button id="btnOpenScenes" class="glass-pill-btn" title="Scenic Live Wallpapers">
+          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+          <span>Scenes</span>
+        </button>
+
+        <!-- Quick YouTube Audio Toggle (Visible when YouTube Wallpaper is active) -->
+        <button id="btnToggleYtAudio" class="glass-pill-btn" style="display:none;" title="Toggle YouTube Audio Mute/Unmute">
+          <span id="ytAudioIcon">🔇</span>
+          <span id="ytAudioLabel">Video Sound</span>
+        </button>
+
+        <button id="btnOpenTasks" class="glass-pill-btn" title="Focus Tasks & Goals">
+          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          <span>Tasks</span>
+        </button>
+
+        <button id="btnClearMode" class="glass-pill-btn" title="Clear View / Zen Mode (Z)">
+          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+        </button>
+
+        <button id="btnFontCycle" class="glass-pill-btn" title="Cycle Timer Font Style (T)">
+          <span style="font-weight:800; font-size:0.95rem;">Aa</span>
+          <span id="fontNavLabel" style="font-size:0.75rem; color:var(--text-muted);">Modern</span>
+        </button>
+
+        <button id="btnFullscreen" class="glass-pill-btn" title="Toggle Fullscreen (F)">
+          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+        </button>
+
+        <button id="btnOpenSettings" class="glass-pill-btn" title="Timer Settings">
+          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Center Stage Focus Hub -->
+    <main class="flocus-center-stage">
+      <!-- Mode Segmented Control (Focus | Short Break | Long Break) -->
+      <div id="pomodoroTabs" class="mode-segmented-control">
+        <button class="mode-tab-btn active" data-mode="focus">Focus</button>
+        <button class="mode-tab-btn" data-mode="shortBreak">Short Break</button>
+        <button class="mode-tab-btn" data-mode="longBreak">Long Break</button>
+      </div>
+
+      <!-- Main Pomodoro View -->
+      <div id="pomodoroHeroCard" class="flocus-hero-card">
+        <div class="dial-box">
+          <svg class="dial-svg" viewBox="0 0 300 300">
+            <circle class="dial-bg" cx="150" cy="150" r="135"></circle>
+            <circle id="progressCircle" class="dial-progress" cx="150" cy="150" r="135"></circle>
+          </svg>
+          <div class="dial-center-content">
+            <div class="time-hero" id="timeDisplay">25:00</div>
+            <div class="status-hero" id="statusLabel">Ready to focus</div>
+            <div class="cycle-dots" id="cycleDots"></div>
+          </div>
+        </div>
+
+        <div class="controls-row">
+          <button id="btnReset" class="btn-circle" title="Reset Session (R)">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+          </button>
+
+          <button id="btnToggle" class="btn-play-hero">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <span id="btnToggleText">Start</span>
+          </button>
+
+          <button id="btnSkip" class="btn-circle" title="Skip Session (S)">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Ambient Clock Mode View (Flocus feature) -->
+      <div id="ambientClockCard" class="flocus-hero-card ambient-clock-view">
+        <div class="ambient-clock-time" id="clockTimeDisplay">00:00:00</div>
+        <div class="ambient-clock-date" id="clockDateDisplay">Wednesday, October 28</div>
+      </div>
+
+      <!-- Pinned Active Goal Bar -->
+      <div class="active-task-pill" id="activeTaskPill">
+        <span class="task-tag">Current Goal</span>
+        <span class="task-title-banner" id="activeTaskBanner">No task selected (Add or choose in Tasks)</span>
+        <span style="font-size:0.75rem; color:var(--text-muted); font-family:var(--font-mono);">Space to play</span>
+      </div>
+    </main>
+
+    <!-- Bottom Footer with Creator Attribution -->
+    <footer class="flocus-footer">
+      <!-- Minimalist Creator Attribution Signature -->
+      <div class="creator-attribution-pill">
+        <span class="creator-text">Designed and Made by <span class="creator-name">Aaqib Majid</span></span>
+      </div>
+
+      <!-- Productivity & Streak Pill -->
+      <div class="quick-stats-pill">
+        <span>Today: <strong class="stat-highlight" id="statTodaySessions">0</strong> sessions</span>
+        <span>•</span>
+        <span><strong class="stat-highlight" id="statTodayMins">0</strong> mins</span>
+        <span>•</span>
+        <span>🔥 <strong class="stat-highlight" id="statStreakDays">0</strong> day streak</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Ambient Sound Mixer Modal (Flocus Layerable Audio) -->
+  <div id="modalMixer" class="glass-modal-overlay">
+    <div class="glass-modal-card">
+      <div class="modal-head">
+        <h3>🎧 Ambient Sound Mixer</h3>
+        <button class="btn-close-modal" data-close="modalMixer">✕</button>
+      </div>
+
+      <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:14px;">
+        Layer multiple atmospheric soundscapes simultaneously:
+      </p>
+
+      <!-- Presets -->
+      <div class="mixer-presets">
+        <button class="preset-chip" data-preset="rainy-cafe">☕ Rainy Cafe</button>
+        <button class="preset-chip" data-preset="deep-focus">🧠 Deep Focus 40Hz</button>
+        <button class="preset-chip" data-preset="cabin-hearth">🔥 Cabin Hearth</button>
+        <button class="preset-chip" data-preset="moonlit-ocean">🌊 Moonlit Ocean</button>
+        <button class="preset-chip" id="btnStopAllSounds" style="color:#ef4444;">⏹ Silence All</button>
+      </div>
+
+      <!-- Individual Track Sliders -->
+      <div class="mixer-tracks-list">
+        <div class="mixer-track-row" data-track="rain">
+          <div class="track-info">
+            <button class="track-toggle-btn">🌧️</button>
+            <span class="track-name">Rainfall</span>
+          </div>
+          <input type="range" class="track-vol-slider" min="0" max="1" step="0.05" value="0.5">
+        </div>
+
+        <div class="mixer-track-row" data-track="waves">
+          <div class="track-info">
+            <button class="track-toggle-btn">🌊</button>
+            <span class="track-name">Ocean Waves</span>
+          </div>
+          <input type="range" class="track-vol-slider" min="0" max="1" step="0.05" value="0.4">
+        </div>
+
+        <div class="mixer-track-row" data-track="forest">
+          <div class="track-info">
+            <button class="track-toggle-btn">🌲</button>
+            <span class="track-name">Forest Birds</span>
+          </div>
+          <input type="range" class="track-vol-slider" min="0" max="1" step="0.05" value="0.35">
+        </div>
+
+        <div class="mixer-track-row" data-track="lofi">
+          <div class="track-info">
+            <button class="track-toggle-btn">☕</button>
+            <span class="track-name">Lo-Fi Vinyl</span>
+          </div>
+          <input type="range" class="track-vol-slider" min="0" max="1" step="0.05" value="0.4">
+        </div>
+
+        <div class="mixer-track-row" data-track="binaural">
+          <div class="track-info">
+            <button class="track-toggle-btn">🧠</button>
+            <span class="track-name">40Hz Gamma Focus</span>
+          </div>
+          <input type="range" class="track-vol-slider" min="0" max="1" step="0.05" value="0.3">
+        </div>
+
+        <div class="mixer-track-row" data-track="campfire">
+          <div class="track-info">
+            <button class="track-toggle-btn">🔥</button>
+            <span class="track-name">Cabin Hearth</span>
+          </div>
+          <input type="range" class="track-vol-slider" min="0" max="1" step="0.05" value="0.4">
+        </div>
+
+        <div class="mixer-track-row" data-track="brownnoise">
+          <div class="track-info">
+            <button class="track-toggle-btn">💨</button>
+            <span class="track-name">Deep Brown Noise</span>
+          </div>
+          <input type="range" class="track-vol-slider" min="0" max="1" step="0.05" value="0.35">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scenic Live Wallpapers Modal (Flocus Scenes) -->
+  <div id="modalScenes" class="glass-modal-overlay">
+    <div class="glass-modal-card">
+      <div class="modal-head">
+        <h3>🖼️ Live Atmospheric Scenes</h3>
+        <button class="btn-close-modal" data-close="modalScenes">✕</button>
+      </div>
+
+      <div class="scenes-grid">
+        <div class="scene-card active" data-scene="rain">
+          <span class="scene-icon">🌧️</span>
+          <span class="scene-name">Rainy Window</span>
+          <span class="scene-desc">Trickling drops with warm cafe bokeh</span>
+        </div>
+
+        <div class="scene-card" data-scene="aurora">
+          <span class="scene-icon">🌌</span>
+          <span class="scene-name">Cosmic Aurora</span>
+          <span class="scene-desc">Twinkling stars & Northern lights</span>
+        </div>
+
+        <div class="scene-card" data-scene="sakura">
+          <span class="scene-icon">🌸</span>
+          <span class="scene-name">Anime Sunset</span>
+          <span class="scene-desc">Golden hour & drifting sakura petals</span>
+        </div>
+
+        <div class="scene-card" data-scene="hearth">
+          <span class="scene-icon">🔥</span>
+          <span class="scene-name">Cabin Fireplace</span>
+          <span class="scene-desc">Warm glowing hearth & rising sparks</span>
+        </div>
+      </div>
+
+      <!-- Live Video Background Sanctuary (Multi-Engine: Native MP4 & YouTube Embed) -->
+      <div style="border-top: 1px solid var(--glass-border); padding-top: 18px; margin-top: 16px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; flex-wrap:wrap; gap:8px;">
+          <h4 style="font-size:0.95rem; font-weight:700; display:flex; align-items:center; gap:6px;">
+            <span>🎥 Live Video Wallpaper</span>
+          </h4>
+          <span style="font-size:0.75rem; color:var(--accent-color); background:rgba(56,189,248,0.15); padding:2px 8px; border-radius:6px;">YouTube & Direct MP4</span>
+        </div>
+
+        <!-- Localhost / file:// Guide Banner -->
+        <div id="ytFileProtocolWarning" style="margin-bottom:12px; background:rgba(17, 33, 45, 0.6); border:1px solid var(--glass-border); border-radius:12px; padding:10px 14px; font-size:0.8rem; line-height:1.4;">
+          <strong>💡 YouTube Embed Playback:</strong>
+          For smooth playback with full audio controls, run on your local server (<a href="http://localhost:8000" target="_blank" style="color:var(--accent-color); font-weight:700; text-decoration:underline;">http://localhost:8000</a>) or your hosted website.
+        </div>
+
+        <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:10px;">
+          Paste any YouTube link or select an ambient video below:
+        </p>
+
+        <div style="display:flex; gap:8px;">
+          <input type="text" id="inputYoutubeUrl" class="flocus-input" placeholder="https://www.youtube.com/watch?v=..." style="flex:1;">
+          <button id="btnApplyYoutube" class="glass-pill-btn" style="background:var(--accent-color); color:var(--accent-contrast, #06141B); font-weight:700; padding:0 20px;">Play ▶</button>
+          <button id="btnClearYoutube" class="glass-pill-btn" style="color:#ef4444;" title="Stop & clear video">✕</button>
+        </div>
+
+        <!-- Video Audio Options -->
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-top:12px; background:rgba(255,255,255,0.05); padding:10px 14px; border-radius:12px; border:1px solid var(--glass-border);">
+          <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.85rem; font-weight:600;">
+            <input type="checkbox" id="checkYtSound" style="width:16px; height:16px; accent-color:var(--accent-color);">
+            <span id="ytSoundLabel">Turn Video Sound ON (Unmute)</span>
+          </label>
+          <div id="ytVolContainer" style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:0.75rem; color:var(--text-muted);">Volume:</span>
+            <input type="range" id="sliderYtVol" min="0" max="100" value="70" style="width:85px; accent-color:var(--accent-color);">
+          </div>
+        </div>
+
+        <!-- Curated Video Sanctuary Options (Exclusive: Minecraft Rain & Windmills 4K) -->
+        <div style="margin-top:14px;">
+          <span style="font-size:0.75rem; color:var(--text-muted); display:block; margin-bottom:8px; font-weight:600;">🎬 Curated Video Wallpapers:</span>
+          <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:10px;">
+            <button type="button" class="preset-chip yt-preset-btn preset-video-card" data-yt="58YjsK8NYPE" style="background:rgba(17,33,45,0.7); border:1px solid var(--glass-border); border-radius:14px; padding:12px; display:flex; flex-direction:column; align-items:flex-start; gap:6px; cursor:pointer; text-align:left; transition:all 0.2s ease;">
+              <span style="font-size:1.3rem;">🌧️ 🎵</span>
+              <span style="font-size:0.88rem; font-weight:700; color:var(--text-main);">Minecraft Rain & Musicbox</span>
+              <span style="font-size:0.72rem; color:var(--text-muted);">10 Hours • Soft Rain & Calm Music</span>
+            </button>
+            <button type="button" class="preset-chip yt-preset-btn preset-video-card" data-yt="Z90rTdVoomY" style="background:rgba(17,33,45,0.7); border:1px solid var(--glass-border); border-radius:14px; padding:12px; display:flex; flex-direction:column; align-items:flex-start; gap:6px; cursor:pointer; text-align:left; transition:all 0.2s ease;">
+              <span style="font-size:1.3rem;">🌾 💨</span>
+              <span style="font-size:0.88rem; font-weight:700; color:var(--text-main);">Windmills 4K Wallpaper</span>
+              <span style="font-size:0.72rem; color:var(--text-muted);">12 Hours • Ultra HD Screensaver</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div style="border-top: 1px solid var(--glass-border); padding-top: 16px; margin-top: 16px;">
+        <label style="display:block; font-size:0.85rem; font-weight:600; margin-bottom:8px;">Custom Background Image / GIF URL</label>
+        <div style="display:flex; gap:8px;">
+          <input type="url" id="inputCustomBgUrl" class="flocus-input" placeholder="https://images.unsplash.com/..." style="flex:1;">
+          <button id="btnApplyCustomBg" class="glass-pill-btn" style="padding:0 18px;">Apply</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tasks & Goals Drawer Modal -->
+  <div id="modalTasks" class="glass-modal-overlay">
+    <div class="glass-modal-card">
+      <div class="modal-head">
+        <h3>🎯 Focus Intentions & Tasks</h3>
+        <button class="btn-close-modal" data-close="modalTasks">✕</button>
+      </div>
+
+      <form id="taskForm" class="task-input-bar">
+        <input type="text" id="taskTitleInput" class="flocus-input" placeholder="What will you conquer next?" style="flex:1;" required>
+        <input type="number" id="taskEstInput" class="flocus-input" min="1" max="10" value="1" style="width:70px; text-align:center;" title="Estimated Pomodoros">
+        <button type="submit" class="glass-pill-btn" style="background:var(--accent-color); color:#070a10; font-weight:700;">+ Add</button>
+      </form>
+
+      <ul id="taskList" class="task-list-items"></ul>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="modalSettings" class="glass-modal-overlay">
+    <div class="glass-modal-card">
+      <div class="modal-head">
+        <h3>⚙️ Personalize Your Space</h3>
+        <button class="btn-close-modal" data-close="modalSettings">✕</button>
+      </div>
+
+      <div style="margin-bottom:16px;">
+        <label style="display:block; font-size:0.85rem; font-weight:600; margin-bottom:6px;">Your Name / Handle</label>
+        <input type="text" id="inputUserName" class="flocus-input" style="width:100%;" value="Aaqib Majid">
+      </div>
+
+      <div style="margin-bottom:16px;">
+        <label style="display:block; font-size:0.85rem; font-weight:600; margin-bottom:6px;">Durations (Minutes)</label>
+        <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:10px;">
+          <div>
+            <span style="font-size:0.75rem; color:var(--text-muted);">Focus</span>
+            <input type="number" id="inputFocusTime" class="flocus-input" style="width:100%;" min="1" max="120" value="25">
+          </div>
+          <div>
+            <span style="font-size:0.75rem; color:var(--text-muted);">Short Break</span>
+            <input type="number" id="inputShortBreak" class="flocus-input" style="width:100%;" min="1" max="60" value="5">
+          </div>
+          <div>
+            <span style="font-size:0.75rem; color:var(--text-muted);">Long Break</span>
+            <input type="number" id="inputLongBreak" class="flocus-input" style="width:100%;" min="1" max="60" value="15">
+          </div>
+        </div>
+      </div>
+
+      <!-- Pinterest Lyra Aesthetic Color Palette (Featured: pin.it/7h8c384ds) -->
+      <div style="margin-bottom:18px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+          <label style="font-size:0.85rem; font-weight:600;">Color Palette</label>
+          <span style="font-size:0.75rem; color:var(--accent-color);">Pinterest Pick</span>
+        </div>
+
+        <!-- 6-Swatch Bar Visualizer from pin.it/7h8c384ds -->
+        <div style="background:rgba(17,33,45,0.7); border:1px solid var(--glass-border); border-radius:14px; padding:12px; margin-bottom:10px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; font-size:0.75rem;">
+            <span style="font-weight:700; color:var(--text-main);">Lyra Slate Palette</span>
+            <span style="color:var(--text-muted); font-family:var(--font-mono);">#06141B → #CCD0CF</span>
+          </div>
+          <div style="display:grid; grid-template-columns: repeat(6, 1fr); height:30px; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.15); box-shadow:0 4px 12px rgba(0,0,0,0.35);" title="Lyra Palette: #06141B, #11212D, #253745, #4A5C6A, #9BA8AB, #CCD0CF">
+            <div style="background:#06141B;" title="#06141B (Dark Obsidian)"></div>
+            <div style="background:#11212D;" title="#11212D (Midnight Slate)"></div>
+            <div style="background:#253745;" title="#253745 (Steel Charcoal)"></div>
+            <div style="background:#4A5C6A;" title="#4A5C6A (Dusk Slate)"></div>
+            <div style="background:#9BA8AB;" title="#9BA8AB (Silver Mist)"></div>
+            <div style="background:#CCD0CF;" title="#CCD0CF (Frost Pearl)"></div>
+          </div>
+        </div>
+
+        <!-- Theme Switcher Buttons -->
+        <div class="theme-options-grid" id="themeOptionsGrid">
+          <button type="button" class="theme-option-btn active" data-theme="lyra">
+            <span class="theme-preview-dots">
+              <span style="background:#06141B;"></span>
+              <span style="background:#253745;"></span>
+              <span style="background:#9BA8AB;"></span>
+              <span style="background:#CCD0CF;"></span>
+            </span>
+            <span class="theme-name">Lyra Slate</span>
+          </button>
+          <button type="button" class="theme-option-btn" data-theme="cyan">
+            <span class="theme-preview-dots">
+              <span style="background:#070a10;"></span>
+              <span style="background:#0369a1;"></span>
+              <span style="background:#38bdf8;"></span>
+              <span style="background:#f8fafc;"></span>
+            </span>
+            <span class="theme-name">Ocean Cyan</span>
+          </button>
+          <button type="button" class="theme-option-btn" data-theme="sakura">
+            <span class="theme-preview-dots">
+              <span style="background:#120914;"></span>
+              <span style="background:#9d174d;"></span>
+              <span style="background:#f472b6;"></span>
+              <span style="background:#fce7f3;"></span>
+            </span>
+            <span class="theme-name">Anime Sakura</span>
+          </button>
+          <button type="button" class="theme-option-btn" data-theme="emerald">
+            <span class="theme-preview-dots">
+              <span style="background:#061412;"></span>
+              <span style="background:#065f46;"></span>
+              <span style="background:#34d399;"></span>
+              <span style="background:#d1fae5;"></span>
+            </span>
+            <span class="theme-name">Forest Mint</span>
+          </button>
+          <button type="button" class="theme-option-btn" data-theme="amber">
+            <span class="theme-preview-dots">
+              <span style="background:#140d05;"></span>
+              <span style="background:#92400e;"></span>
+              <span style="background:#fbbf24;"></span>
+              <span style="background:#fef3c7;"></span>
+            </span>
+            <span class="theme-name">Cozy Amber</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Timer Typography / Font Selector -->
+      <div style="margin-bottom:18px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+          <label style="font-size:0.85rem; font-weight:600;">Timer Font Style</label>
+          <span style="font-size:0.75rem; color:var(--accent-color);">Live Switch</span>
+        </div>
+        <div class="font-options-grid" id="fontOptionsGrid">
+          <button type="button" class="font-option-btn active" data-font="modern">
+            <span class="font-sample" style="font-family:'Plus Jakarta Sans', sans-serif;">25:00</span>
+            <span class="font-name">Modern Sans</span>
+          </button>
+          <button type="button" class="font-option-btn" data-font="mono">
+            <span class="font-sample" style="font-family:'JetBrains Mono', monospace;">25:00</span>
+            <span class="font-name">Tech Mono</span>
+          </button>
+          <button type="button" class="font-option-btn" data-font="digital">
+            <span class="font-sample" style="font-family:'Orbitron', monospace;">25:00</span>
+            <span class="font-name">Cyber Digital</span>
+          </button>
+          <button type="button" class="font-option-btn" data-font="editorial">
+            <span class="font-sample" style="font-family:'Playfair Display', serif;">25:00</span>
+            <span class="font-name">Luxury Serif</span>
+          </button>
+          <button type="button" class="font-option-btn" data-font="geometric">
+            <span class="font-sample" style="font-family:'Outfit', sans-serif;">25:00</span>
+            <span class="font-name">Geometric</span>
+          </button>
+          <button type="button" class="font-option-btn" data-font="handwritten">
+            <span class="font-sample" style="font-family:'Caveat', cursive;">25:00</span>
+            <span class="font-name">Handwritten</span>
+          </button>
+        </div>
+      </div>
+
+      <div style="margin-bottom:16px;">
+        <label style="display:block; font-size:0.85rem; font-weight:600; margin-bottom:6px;">Completion Tone</label>
+        <div style="display:flex; gap:8px;">
+          <select id="selectAlarmTone" class="flocus-input" style="flex:1;">
+            <option value="bowl">🧘 Tibetan Singing Bowl</option>
+            <option value="marimba">🎵 Bright Marimba</option>
+            <option value="ding">🔔 Classic Bell</option>
+            <option value="digital">📟 Retro Digital</option>
+          </select>
+          <button id="btnTestSound" class="glass-pill-btn" type="button">Test 🔊</button>
+        </div>
+      </div>
+
+      <button id="btnSaveSettings" class="glass-pill-btn" style="width:100%; justify-content:center; background:var(--accent-color); color:#070a10; font-weight:700; margin-top:8px;">
+        Save Preferences
+      </button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/audio.js"></script>
+  <script src="js/wallpaper.js"></script>
+  <script src="js/timer.js"></script>
+  <script src="js/tasks.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
