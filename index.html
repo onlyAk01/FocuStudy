@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- YouTube Error 153 Origin & Referrer Security Header -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Flocus • Aesthetic Pomodoro & Live Ambient Sanctuary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=JetBrains+Mono:wght@700;800;900&family=Orbitron:wght@700;900&family=Outfit:wght@700;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Pinterest Lyra Palette (pin.it/7h8c384ds) */
+      --lyra-darkest: #06141B;
+      --lyra-dark: #11212D;
+      --lyra-steel: #253745;
+      --lyra-slate: #4A5C6A;
+      --lyra-mist: #9BA8AB;
+      --lyra-frost: #CCD0CF;
+
+      /* Active Default: Pinterest Lyra */
+      --bg-primary: #06141B;
+      --bg-gradient: linear-gradient(145deg, #06141B 0%, #11212D 55%, #253745 100%);
+      --text-main: #CCD0CF;
+      --text-muted: #9BA8AB;
+      --glass-bg: rgba(17, 33, 45, 0.65);
+      --glass-card: rgba(17, 33, 45, 0.85);
+      --glass-border: rgba(155, 168, 171, 0.22);
+      --glass-border-hover: rgba(204, 208, 207, 0.5);
+      --accent-color: #CCD0CF;
+      --accent-contrast: #06141B;
+      --accent-glow: rgba(155, 168, 171, 0.45);
+      --accent-secondary: #9BA8AB;
+      --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+      /* Timer Typography / Font Options */
+      --font-timer-modern: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-timer-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      --font-timer-digital: 'Orbitron', 'Courier New', monospace;
+      --font-timer-editorial: 'Playfair Display', Georgia, serif;
+      --font-timer-geometric: 'Outfit', 'Century Gothic', sans-serif;
+      --font-timer-handwritten: 'Caveat', cursive, sans-serif;
+      --font-timer: var(--font-timer-modern);
+    }
+
+    [data-theme="lyra"] {
+      --bg-primary: #06141B;
+      --bg-gradient: linear-gradient(145deg, #06141B 0%, #11212D 55%, #253745 100%);
+      --text-main: #CCD0CF;
+      --text-muted: #9BA8AB;
+      --glass-bg: rgba(17, 33, 45, 0.65);
+      --glass-card: rgba(17, 33, 45, 0.85);
+      --glass-border: rgba(155, 168, 171, 0.22);
+      --glass-border-hover: rgba(204, 208, 207, 0.5);
+      --accent-color: #CCD0CF;
+      --accent-contrast: #06141B;
+      --accent-glow: rgba(155, 168, 171, 0.45);
+      --accent-secondary: #9BA8AB;
+    }
+
+    [data-theme="cyan"] {
+      --bg-primary: #070a10;
+      --bg-gradient: linear-gradient(145deg, #070a10 0%, #0c1424 55%, #0f1c30 100%);
+      --text-main: #f8fafc;
+      --text-muted: rgba(226, 232, 240, 0.65);
+      --glass-bg: rgba(15, 20, 26, 0.58);
+      --glass-card: rgba(20, 28, 38, 0.72);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --glass-border-hover: rgba(255, 255, 255, 0.28);
+      --accent-color: #38bdf8;
+      --accent-contrast: #050b14;
+      --accent-glow: rgba(56, 189, 248, 0.35);
+      --accent-secondary: #0284c7;
+    }
+
+    [data-theme="sakura"] {
+      --bg-primary: #120914;
+      --bg-gradient: linear-gradient(145deg, #120914 0%, #201024 55%, #2d1433 100%);
+      --text-main: #fce7f3;
+      --text-muted: rgba(244, 114, 182, 0.75);
+      --glass-bg: rgba(30, 15, 33, 0.6);
+      --glass-card: rgba(38, 18, 42, 0.78);
+      --glass-border: rgba(244, 114, 182, 0.22);
+      --glass-border-hover: rgba(244, 114, 182, 0.5);
+      --accent-color: #f472b6;
+      --accent-contrast: #160818;
+      --accent-glow: rgba(244, 114, 182, 0.35);
+      --accent-secondary: #db2777;
+    }
+
+    [data-theme="emerald"] {
+      --bg-primary: #061412;
+      --bg-gradient: linear-gradient(145deg, #061412 0%, #09241f 55%, #0d332c 100%);
+      --text-main: #d1fae5;
+      --text-muted: rgba(52, 211, 153, 0.75);
+      --glass-bg: rgba(10, 31, 26, 0.6);
+      --glass-card: rgba(14, 40, 33, 0.78);
+      --glass-border: rgba(52, 211, 153, 0.22);
+      --glass-border-hover: rgba(52, 211, 153, 0.5);
+      --accent-color: #34d399;
+      --accent-contrast: #051614;
+      --accent-glow: rgba(52, 211, 153, 0.35);
+      --accent-secondary: #059669;
+    }
+
+    [data-theme="amber"] {
+      --bg-primary: #140d05;
+      --bg-gradient: linear-gradient(145deg, #140d05 0%, #241709 55%, #331f0a 100%);
+      --text-main: #fef3c7;
+      --text-muted: rgba(251, 191, 36, 0.75);
+      --glass-bg: rgba(34, 21, 10, 0.6);
+      --glass-card: rgba(43, 26, 12, 0.78);
+      --glass-border: rgba(251, 191, 36, 0.22);
+      --glass-border-hover: rgba(251, 191, 36, 0.5);
+      --accent-color: #fbbf24;
+      --accent-contrast: #180e03;
+      --accent-glow: rgba(251, 191, 36, 0.35);
+      --accent-secondary: #d97706;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+
+    html, body {
+      width: 100%; height: 100%; overflow-x: hidden;
+      font-family: var(--font-family); color: var(--text-main);
+      background-color: var(--bg-primary);
+      background-image: var(--bg-gradient);
+      background-attachment: fixed;
+    }
+
+    /* Fixed Canvas Live Wallpaper */
+    .live-wallpaper-canvas {
+      position: fixed; inset: 0; width: 100vw; height: 100vh;
+      z-index: 0; pointer-events: none; transition: opacity 0.5s ease;
+    }
+
+    /* YouTube Background Fullbleed Video */
+    .youtube-bg-container {
+      position: fixed; inset: 0; width: 100vw; height: 100vh;
+      z-index: 0; overflow: hidden; pointer-events: none;
+      background-color: #000; transition: opacity 0.5s ease;
+    }
+
+    .youtube-bg-container iframe {
+      position: absolute; top: 50%; left: 50%;
+      width: 100vw; height: 56.25vw; min-height: 100vh; min-width: 177.77vh;
+      transform: translate(-50%, -50%); pointer-events: none; border: none;
+    }
+    .native-bg-video {
+      position: absolute; top: 50%; left: 50%;
+      width: 100vw; height: 56.25vw; min-height: 100vh; min-width: 177.77vh;
+      transform: translate(-50%, -50%); object-fit: cover; pointer-events: none;
+    }
+
+    .youtube-bg-overlay {
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at center, rgba(7, 10, 16, 0.4) 0%, rgba(7, 10, 16, 0.72) 100%);
+      pointer-events: none;
+    }
+
+    .video-engine-btn {
+      background: transparent; border: none; color: var(--text-muted);
+      padding: 4px 10px; border-radius: 9999px; font-size: 0.72rem; font-weight: 600;
+      cursor: pointer; transition: all 0.2s ease;
+    }
+    .video-engine-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.1); }
+    .video-engine-btn.active {
+      background: var(--accent-color); color: #050b14; font-weight: 700;
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    .flocus-app {
+      position: relative; z-index: 10; min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: space-between;
+      padding: 24px 28px 20px;
+    }
+
+    .flocus-header {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .brand-section { display: flex; align-items: center; gap: 14px; }
+    .brand-badge {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: rgba(255, 255, 255, 0.1); border: 1px solid var(--glass-border);
+      backdrop-filter: blur(20px); display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+    }
+    .greeting-text { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; }
+    .mantra-text { font-size: 0.85rem; color: var(--text-muted); cursor: pointer; }
+    .mantra-text:hover { color: #fff; }
+
+    .flocus-nav-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .glass-pill-btn {
+      background: var(--glass-bg); border: 1px solid var(--glass-border);
+      color: var(--text-main); padding: 8px 16px; border-radius: 9999px;
+      font-size: 0.85rem; font-weight: 500; cursor: pointer; display: inline-flex;
+      align-items: center; gap: 8px; backdrop-filter: blur(24px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); transition: all 0.25s ease;
+    }
+    .glass-pill-btn:hover { background: rgba(255, 255, 255, 0.12); transform: translateY(-2px); }
+    .glass-pill-btn.active {
+      background: rgba(56, 189, 248, 0.18); border-color: var(--accent-color);
+      box-shadow: 0 0 16px var(--accent-glow);
+    }
+    .active-count-badge {
+      background: var(--accent-color); color: #070a10; font-size: 0.72rem;
+      font-weight: 700; padding: 1px 6px; border-radius: 10px;
+    }
+
+    .flocus-center-stage {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 16px 0; margin: auto 0;
+    }
+    .mode-segmented-control {
+      display: inline-flex; background: rgba(10, 15, 20, 0.45);
+      border: 1px solid var(--glass-border); backdrop-filter: blur(24px);
+      padding: 4px; border-radius: 9999px; gap: 4px; margin-bottom: 20px;
+    }
+    .mode-tab-btn {
+      background: transparent; border: none; color: var(--text-muted);
+      padding: 7px 18px; border-radius: 9999px; font-size: 0.85rem; font-weight: 600;
+      cursor: pointer; transition: all 0.2s ease;
+    }
+    .mode-tab-btn.active { background: rgba(255, 255, 255, 0.14); color: #fff; }
+
+    .flocus-hero-card {
+      background: transparent !important; border: none !important;
+      backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+      box-shadow: none !important; border-radius: 0; padding: 10px 20px;
+      display: flex; flex-direction: column; align-items: center;
+      max-width: 100%; width: auto; position: relative;
+    }
+    .dial-box {
+      position: relative; width: clamp(320px, 42vw, 420px); height: clamp(320px, 42vw, 420px);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 24px;
+    }
+    .dial-svg { transform: rotate(-90deg); width: 100%; height: 100%; }
+    .dial-bg { stroke: rgba(255, 255, 255, 0.08); stroke-width: 6; fill: none; }
+    .dial-progress {
+      stroke: var(--accent-color); stroke-width: 7; stroke-linecap: round; fill: none;
+      stroke-dasharray: 848; stroke-dashoffset: 0; transition: stroke-dashoffset 0.3s ease;
+      filter: drop-shadow(0 0 14px var(--accent-glow));
+    }
+    .dial-center-content { position: absolute; display: flex; flex-direction: column; align-items: center; }
+    .time-hero {
+      font-family: var(--font-timer);
+      font-size: clamp(5.4rem, 12vw, 7.8rem); font-weight: 900; letter-spacing: -0.05em;
+      font-variant-numeric: tabular-nums; line-height: 0.95; color: #ffffff;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.85), 0 0 35px var(--accent-glow);
+      transition: font-family 0.2s ease;
+    }
+    .status-hero {
+      font-size: 0.95rem; color: var(--text-muted); text-transform: uppercase;
+      letter-spacing: 0.16em; margin-top: 12px; font-weight: 700;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+    }
+    .cycle-dots { display: flex; gap: 10px; margin-top: 14px; }
+    .cycle-dot { width: 9px; height: 9px; border-radius: 50%; background: rgba(255, 255, 255, 0.2); transition: all 0.25s; }
+    .cycle-dot.filled { background: var(--accent-color); box-shadow: 0 0 10px var(--accent-color); transform: scale(1.2); }
+
+    .controls-row {
+      display: flex; align-items: center; gap: 16px;
+      background: rgba(15, 20, 26, 0.45); border: 1px solid var(--glass-border);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      padding: 8px 18px; border-radius: 9999px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    .btn-circle {
+      background: rgba(255, 255, 255, 0.08); border: 1px solid var(--glass-border);
+      color: var(--text-main); width: 50px; height: 50px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s;
+    }
+    .btn-circle:hover { background: rgba(255, 255, 255, 0.15); transform: translateY(-2px); }
+    .btn-play-hero {
+      background: var(--accent-color); color: var(--accent-contrast, #06141B); border: none; height: 54px;
+      padding: 0 36px; border-radius: 9999px; font-size: 1.1rem; font-weight: 700;
+      display: flex; align-items: center; gap: 8px; cursor: pointer;
+      box-shadow: 0 8px 24px var(--accent-glow); transition: all 0.2s ease;
+    }
+    .btn-play-hero:hover { transform: translateY(-2px); filter: brightness(1.1); }
+
+    .ambient-clock-view {
+      display: none; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 30px 20px;
+    }
+    .ambient-clock-time {
+      font-family: var(--font-timer);
+      font-size: clamp(5.8rem, 15vw, 9.5rem); font-weight: 900; letter-spacing: -0.05em;
+      font-variant-numeric: tabular-nums; line-height: 0.95; color: #ffffff;
+      text-shadow: 0 4px 35px rgba(0, 0, 0, 0.85), 0 0 35px rgba(56, 189, 248, 0.45);
+      transition: font-family 0.2s ease;
+    }
+    .ambient-clock-date { font-size: 1.25rem; color: var(--text-muted); font-weight: 500; margin-top: 10px; }
+
+    .active-task-pill {
+      margin-top: 18px; background: var(--glass-bg); border: 1px dashed var(--glass-border);
+      backdrop-filter: blur(20px); border-radius: 9999px; padding: 10px 20px;
+      display: flex; align-items: center; gap: 12px; max-width: 480px; width: 100%;
+    }
+    .task-tag { background: rgba(56, 189, 248, 0.2); color: var(--accent-color); font-size: 0.72rem; font-weight: 700; padding: 3px 8px; border-radius: 6px; text-transform: uppercase; }
+    .task-title-banner { font-size: 0.9rem; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; }
+
+    .flocus-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 14px; padding-top: 10px;
+    }
+    .creator-attribution-pill {
+      display: inline-flex; align-items: center; background: transparent;
+      border: none; backdrop-filter: none; -webkit-backdrop-filter: none;
+      box-shadow: none; padding: 4px 0; border-radius: 0;
+      opacity: 0.65; transition: opacity 0.25s ease;
+    }
+    .creator-attribution-pill:hover { opacity: 1; border-color: transparent; transform: none; box-shadow: none; }
+    .pulse-dot { display: none; }
+    .creator-text {
+      font-size: 0.82rem; letter-spacing: 0.04em; color: rgba(248, 250, 252, 0.6);
+      font-weight: 400; text-shadow: 0 1px 10px rgba(0, 0, 0, 0.85);
+    }
+    .creator-name {
+      color: rgba(255, 255, 255, 0.95); font-weight: 600; letter-spacing: 0.03em;
+      background: none; -webkit-background-clip: unset; -webkit-text-fill-color: initial;
+      text-shadow: 0 1px 10px rgba(0, 0, 0, 0.85);
+    }
+    .quick-stats-pill {
+      display: inline-flex; align-items: center; gap: 12px; background: var(--glass-bg);
+      border: 1px solid var(--glass-border); backdrop-filter: blur(20px);
+      padding: 8px 18px; border-radius: 9999px; font-size: 0.85rem; color: var(--text-muted);
+    }
+    .stat-highlight { color: #fff; font-weight: 700; }
+
+    /* Modals */
+    .glass-modal-overlay {
+      position: fixed; inset: 0; background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(12px); z-index: 100; display: none; align-items: center;
+      justify-content: center; padding: 20px;
+    }
+    .glass-modal-overlay.open { display: flex; }
+    .glass-modal-card {
+      background: rgba(18, 24, 34, 0.88); border: 1px solid var(--glass-border);
+      border-radius: 28px; padding: 28px; max-width: 500px; width: 100%;
+      max-height: 90vh; overflow-y: auto; backdrop-filter: blur(32px);
+    }
+    .modal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+    .modal-head h3 { font-size: 1.25rem; font-weight: 700; }
+    .btn-close-modal { background: transparent; border: none; color: var(--text-muted); font-size: 1.2rem; cursor: pointer; }
+
+    .mixer-presets { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+    .preset-chip {
+      background: rgba(255, 255, 255, 0.08); border: 1px solid var(--glass-border);
+      color: #fff; padding: 5px 12px; border-radius: 9999px; font-size: 0.8rem; cursor: pointer;
+    }
+    .preset-chip:hover { border-color: var(--accent-color); background: rgba(56, 189, 248, 0.15); }
+
+    .mixer-tracks-list { display: flex; flex-direction: column; gap: 10px; }
+    .mixer-track-row {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border);
+      padding: 8px 14px; border-radius: 12px;
+    }
+    .mixer-track-row.active { border-color: var(--accent-color); background: rgba(56, 189, 248, 0.08); }
+    .track-info { display: flex; align-items: center; gap: 10px; min-width: 130px; }
+    .track-toggle-btn {
+      background: rgba(255, 255, 255, 0.1); border: 1px solid var(--glass-border);
+      color: var(--text-muted); width: 30px; height: 30px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; cursor: pointer;
+    }
+    .mixer-track-row.active .track-toggle-btn { background: var(--accent-color); color: #040810; }
+    .track-name { font-size: 0.88rem; font-weight: 600; }
+    .track-vol-slider { flex: 1; accent-color: var(--accent-color); cursor: pointer; }
+
+    .scenes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
+    .scene-card {
+      background: rgba(255, 255, 255, 0.06); border: 2px solid var(--glass-border);
+      border-radius: 14px; padding: 14px; display: flex; flex-direction: column;
+      align-items: center; gap: 6px; cursor: pointer; text-align: center;
+    }
+    .scene-card:hover { transform: translateY(-2px); }
+    .scene-card.active { border-color: var(--accent-color); background: rgba(56, 189, 248, 0.15); }
+    .scene-icon { font-size: 1.8rem; }
+    .scene-name { font-size: 0.88rem; font-weight: 700; }
+    .scene-desc { font-size: 0.72rem; color: var(--text-muted); }
+
+    .flocus-input {
+      background: rgba(255, 255, 255, 0.08); border: 1px solid var(--glass-border);
+      color: #fff; padding: 8px 12px; border-radius: 10px; font-size: 0.9rem; outline: none;
+    }
+    .task-input-bar { display: flex; gap: 8px; margin-bottom: 14px; }
+    .task-list-items { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .task-item-card {
+      background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border);
+      padding: 10px 14px; border-radius: 12px; display: flex; align-items: center;
+      justify-content: space-between; gap: 10px; cursor: pointer;
+    }
+    .task-item-card.active { border-color: var(--accent-color); background: rgba(56, 189, 248, 0.1); }
+    .task-check-box {
+      width: 18px; height: 18px; border-radius: 5px; border: 2px solid var(--text-muted);
+      display: flex; align-items: center; justify-content: center; font-size: 0.72rem;
+    }
+    .task-item-card.done .task-check-box { background: var(--accent-color); border-color: var(--accent-color); color: #040810; }
+    .task-item-card.done .task-text-span { text-decoration: line-through; color: var(--text-muted); }
+
+    /* Clear Mode */
+    body.clear-mode .flocus-header,
+    body.clear-mode .active-task-pill,
+    body.clear-mode .flocus-footer,
+    body.clear-mode .mode-segmented-control {
+      opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+    }
+    body.clear-mode .flocus-hero-card { background: transparent; border: none; box-shadow: none; }
+    .exit-clear-btn { display: none; position: fixed; top: 20px; right: 20px; z-index: 100; }
+    body.clear-mode .exit-clear-btn { display: block; }
+
+    /* Timer Typography / Font Selector */
+    .font-options-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+    @media (max-width: 520px) { .font-options-grid { grid-template-columns: repeat(2, 1fr); } }
+    .font-option-btn {
+      background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border);
+      color: var(--text-main); border-radius: 12px; padding: 10px 8px; cursor: pointer;
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .font-option-btn:hover { background: rgba(255, 255, 255, 0.12); border-color: var(--glass-border-hover); transform: translateY(-2px); }
+    .font-option-btn.active {
+      background: rgba(56, 189, 248, 0.18); border-color: var(--accent-color);
+      color: #fff; box-shadow: 0 0 14px var(--accent-glow);
+    }
+    .font-sample { font-size: 1.25rem; font-weight: 800; line-height: 1.2; }
+    .font-name { font-size: 0.72rem; color: var(--text-muted); font-weight: 600; }
+    .font-option-btn.active .font-name { color: #fff; }
+
+    /* Palette / Theme Switcher */
+    .theme-options-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+    @media (max-width: 520px) { .theme-options-grid { grid-template-columns: repeat(2, 1fr); } }
+    .theme-option-btn {
+      background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border);
+      color: var(--text-main); border-radius: 12px; padding: 8px; cursor: pointer;
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .theme-option-btn:hover { background: rgba(255, 255, 255, 0.12); border-color: var(--glass-border-hover); transform: translateY(-2px); }
+    .theme-option-btn.active { background: rgba(204, 208, 207, 0.18); border-color: var(--accent-color); color: #fff; box-shadow: 0 0 14px var(--accent-glow); }
+    .theme-preview-dots { display: flex; gap: 4px; align-items: center; }
+    .theme-preview-dots span { width: 12px; height: 12px; border-radius: 50%; display: inline-block; border: 1px solid rgba(255, 255, 255, 0.2); }
+    .theme-name { font-size: 0.72rem; color: var(--text-muted); font-weight: 600; }
+    .theme-option-btn.active .theme-name { color: #fff; }
+
+    .preset-video-card { transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
+    .preset-video-card:hover {
+      background: rgba(37, 55, 69, 0.85) !important;
+      border-color: var(--accent-color) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Live Scenic Canvas Wallpaper -->
+  <canvas id="liveWallpaperCanvas" class="live-wallpaper-canvas"></canvas>
+
+  <!-- Live Video Background Sanctuary (Dual Engine: Native HTML5 + Mirror / YouTube) -->
+  <div id="youtubeBgContainer" class="youtube-bg-container" style="display:none;">
+    <video id="nativeBgVideo" class="native-bg-video" autoplay loop muted playsinline style="display:none;"></video>
+    <iframe id="youtubeBgIframe"
+      src=""
+      title="Live video wallpaper"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+    <div class="youtube-bg-overlay"></div>
+  </div>
+
+  <button id="btnExitClear" class="glass-pill-btn exit-clear-btn">✕ Exit Clear View (Z)</button>
+
+  <div class="flocus-app">
+    <!-- Top Flocus Floating Header -->
+    <header class="flocus-header">
+      <div class="brand-section">
+        <div class="brand-badge">☕</div>
+        <div>
+          <h1 class="greeting-text" id="userGreeting">Good morning, Aaqib Majid</h1>
+          <p class="mantra-text" id="userMantra" title="Click to cycle daily intentions">What would you like to accomplish today?</p>
+        </div>
+      </div>
+
+      <nav class="flocus-nav-actions">
+        <button id="btnViewToggle" class="glass-pill-btn" title="Toggle Clock / Timer">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/></svg>
+          <span id="viewToggleLabel">Clock</span>
+        </button>
+
+        <button id="btnOpenMixer" class="glass-pill-btn" title="Ambient Mixer">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+          <span>Sounds</span>
+          <span id="activeSoundsCount" class="active-count-badge" style="display:none;">0</span>
+        </button>
+
+        <button id="btnOpenScenes" class="glass-pill-btn" title="Live Wallpapers">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+          <span>Scenes</span>
+        </button>
+
+        <!-- Quick YouTube Audio Toggle -->
+        <button id="btnToggleYtAudio" class="glass-pill-btn" style="display:none;" title="Toggle YouTube Sound">
+          <span id="ytAudioIcon">🔇</span>
+          <span id="ytAudioLabel">Video Sound</span>
+        </button>
+
+        <button id="btnOpenTasks" class="glass-pill-btn" title="Focus Tasks">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          <span>Tasks</span>
+        </button>
+
+        <button id="btnFontCycle" class="glass-pill-btn" title="Cycle Timer Font (T)">
+          <span style="font-weight:800; font-size:0.95rem;">Aa</span>
+          <span id="fontNavLabel" style="font-size:0.75rem; color:var(--text-muted);">Modern</span>
+        </button>
+
+        <button id="btnClearMode" class="glass-pill-btn" title="Clear View (Z)">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+        </button>
+
+        <button id="btnOpenSettings" class="glass-pill-btn" title="Settings">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Center Stage -->
+    <main class="flocus-center-stage">
+      <div id="pomodoroTabs" class="mode-segmented-control">
+        <button class="mode-tab-btn active" data-mode="focus">Focus</button>
+        <button class="mode-tab-btn" data-mode="shortBreak">Short Break</button>
+        <button class="mode-tab-btn" data-mode="longBreak">Long Break</button>
+      </div>
+
+      <div id="pomodoroHeroCard" class="flocus-hero-card">
+        <div class="dial-box">
+          <svg class="dial-svg" viewBox="0 0 300 300">
+            <circle class="dial-bg" cx="150" cy="150" r="135"></circle>
+            <circle id="progressCircle" class="dial-progress" cx="150" cy="150" r="135"></circle>
+          </svg>
+          <div class="dial-center-content">
+            <div class="time-hero" id="timeDisplay">25:00</div>
+            <div class="status-hero" id="statusLabel">Ready to focus</div>
+            <div class="cycle-dots" id="cycleDots"></div>
+          </div>
+        </div>
+
+        <div class="controls-row">
+          <button id="btnReset" class="btn-circle" title="Reset (R)">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+          </button>
+          <button id="btnToggle" class="btn-play-hero">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <span id="btnToggleText">Start</span>
+          </button>
+          <button id="btnSkip" class="btn-circle" title="Skip (S)">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Ambient Clock Card -->
+      <div id="ambientClockCard" class="flocus-hero-card ambient-clock-view">
+        <div class="ambient-clock-time" id="clockTimeDisplay">00:00:00</div>
+        <div class="ambient-clock-date" id="clockDateDisplay">Wednesday, October 28</div>
+      </div>
+
+      <!-- Active Goal -->
+      <div class="active-task-pill" id="activeTaskPill">
+        <span class="task-tag">Current Goal</span>
+        <span class="task-title-banner" id="activeTaskBanner">No task selected (Add or choose in Tasks)</span>
+        <span style="font-size:0.75rem; color:var(--text-muted); font-family:var(--font-mono);">Space to play</span>
+      </div>
+    </main>
+
+    <!-- Bottom Footer -->
+    <footer class="flocus-footer">
+      <!-- Minimalist Creator Attribution Signature -->
+      <div class="creator-attribution-pill">
+        <span class="creator-text">Designed and Made by <span class="creator-name">Aaqib Majid</span></span>
+      </div>
+
+      <div class="quick-stats-pill">
+        <span>Today: <strong class="stat-highlight" id="statTodaySessions">0</strong> sessions</span>
+        <span>•</span>
+        <span><strong class="stat-highlight" id="statTodayMins">0</strong> mins</span>
+        <span>•</span>
+        <span>🔥 <strong class="stat-highlight" id="statStreakDays">0</strong> day streak</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Ambient Sound Mixer Modal -->
+  <div id="modalMixer" class="glass-modal-overlay">
+    <div class="glass-modal-card">
+      <div class="modal-head">
+        <h3>🎧 Ambient Sound Mixer</h3>
+        <button class="btn-close-modal" data-close="modalMixer">✕</button>
+      </div>
+
+      <div class="mixer-presets">
+        <button class="preset-chip" data-preset="rainy-cafe">☕ Rainy Cafe</button>
+        <button class="preset-chip" data-preset="deep-focus">🧠 Deep Focus 40Hz</button>
+        <button class="preset-chip" data-preset="cabin-hearth">🔥 Cabin Hearth</button>
+        <button class="preset-chip" data-preset="moonlit-ocean">🌊 Moonlit Ocean</button>
+        <button class="preset-chip" id="btnStopAllSounds" style="color:#ef4444;">⏹ Silence All</button>
+      </div>
+
+      <div class="mixer-tracks-list">
+        <div class="mixer-track-row" data-track="rain">
+          <div class="track-info"><button class="track-toggle-btn">🌧️</button><span class="track-name">Rainfall</span></div>
+          <input type="range" class="track-vol-slider" min="0" max="1" step="0.05" value="0.5">
+        </div>
+        <div class="mixer-track-row" data-track="waves">
+          <div class="track-info"><button class="track-toggle-btn">🌊</button><span class="track-name">Ocean Waves</span></div>
+          <input type="range" class="track-vol-slider" min="0" max="1" step="0.05" value="0.4">
+        </div>
+        <div class="mixer-track-row" data-track="forest">
+          <div class="track-info"><button class="track-toggle-btn">🌲</button><span class="track-name">Forest Birds</span></div>
+          <input type="range" class="track-vol-slider" min="0" max="1" step="0.05" value="0.35">
+        </div>
+        <div class="mixer-track-row" data-track="lofi">
+          <div class="track-info"><button class="track-toggle-btn">☕</button><span class="track-name">Lo-Fi Vinyl</span></div>
+          <input type="range" class="track-vol-slider" min="0" max="1" step="0.05" value="0.4">
+        </div>
+        <div class="mixer-track-row" data-track="binaural">
+          <div class="track-info"><button class="track-toggle-btn">🧠</button><span class="track-name">40Hz Gamma Focus</span></div>
+          <input type="range" class="track-vol-slider" min="0" max="1" step="0.05" value="0.3">
+        </div>
+        <div class="mixer-track-row" data-track="campfire">
+          <div class="track-info"><button class="track-toggle-btn">🔥</button><span class="track-name">Cabin Hearth</span></div>
+          <input type="range" class="track-vol-slider" min="0" max="1" step="0.05" value="0.4">
+        </div>
+        <div class="mixer-track-row" data-track="brownnoise">
+          <div class="track-info"><button class="track-toggle-btn">💨</button><span class="track-name">Brown Noise</span></div>
+          <input type="range" class="track-vol-slider" min="0" max="1" step="0.05" value="0.35">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scenic Live Wallpapers Modal -->
+  <div id="modalScenes" class="glass-modal-overlay">
+    <div class="glass-modal-card">
+      <div class="modal-head">
+        <h3>🖼️ Live Atmospheric Scenes</h3>
+        <button class="btn-close-modal" data-close="modalScenes">✕</button>
+      </div>
+      <div class="scenes-grid">
+        <div class="scene-card active" data-scene="rain">
+          <span class="scene-icon">🌧️</span>
+          <span class="scene-name">Rainy Window</span>
+          <span class="scene-desc">Trickling drops & cafe bokeh</span>
+        </div>
+        <div class="scene-card" data-scene="aurora">
+          <span class="scene-icon">🌌</span>
+          <span class="scene-name">Cosmic Aurora</span>
+          <span class="scene-desc">Twinkling stars & Northern lights</span>
+        </div>
+        <div class="scene-card" data-scene="sakura">
+          <span class="scene-icon">🌸</span>
+          <span class="scene-name">Anime Sunset</span>
+          <span class="scene-desc">Golden hour & sakura petals</span>
+        </div>
+        <div class="scene-card" data-scene="hearth">
+          <span class="scene-icon">🔥</span>
+          <span class="scene-name">Cabin Fireplace</span>
+          <span class="scene-desc">Warm glowing hearth & sparks</span>
+        </div>
+      </div>
+
+      <!-- Live Video Background Sanctuary (Multi-Engine: Mirror, YouTube, Direct MP4) -->
+      <!-- Live Video Background Sanctuary (Multi-Engine: Native MP4 & YouTube Embed) -->
+      <div style="border-top:1px solid var(--glass-border); padding-top:16px; margin-top:16px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; flex-wrap:wrap; gap:8px;">
+          <h4 style="font-size:0.92rem; font-weight:700;">🎥 Live Video Wallpaper</h4>
+          <span style="font-size:0.75rem; color:var(--accent-color); background:rgba(204,208,207,0.15); padding:2px 8px; border-radius:6px;">YouTube Ambient</span>
+        </div>
+
+        <!-- Localhost / file:// Guide Banner -->
+        <div style="margin-bottom:12px; background:rgba(17, 33, 45, 0.6); border:1px solid var(--glass-border); border-radius:12px; padding:10px 14px; font-size:0.8rem; line-height:1.4;">
+          <strong>💡 YouTube Embed Playback:</strong>
+          For smooth playback with full audio controls, run on your local server (<a href="http://localhost:8000" target="_blank" style="color:var(--accent-color); font-weight:700; text-decoration:underline;">http://localhost:8000</a>) or your hosted website.
+        </div>
+
+        <p style="font-size:0.78rem; color:var(--text-muted); margin-bottom:8px;">
+          Paste any YouTube link or select an ambient video below:
+        </p>
+
+        <div style="display:flex; gap:8px;">
+          <input type="text" id="inputYoutubeUrl" class="flocus-input" placeholder="https://www.youtube.com/watch?v=..." style="flex:1;">
+          <button id="btnApplyYoutube" class="glass-pill-btn" style="background:var(--accent-color); color:var(--accent-contrast, #06141B); font-weight:700;">Play ▶</button>
+          <button id="btnClearYoutube" class="glass-pill-btn" style="color:#ef4444;" title="Clear video wallpaper">✕</button>
+        </div>
+
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; margin-top:10px; background:rgba(255,255,255,0.05); padding:8px 12px; border-radius:12px; border:1px solid var(--glass-border);">
+          <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.82rem; font-weight:600;">
+            <input type="checkbox" id="checkYtSound" style="width:16px; height:16px; accent-color:var(--accent-color);">
+            <span>Enable Video Sound (Unmute)</span>
+          </label>
+          <div style="display:flex; align-items:center; gap:6px;">
+            <span style="font-size:0.72rem; color:var(--text-muted);">Vol:</span>
+            <input type="range" id="sliderYtVol" min="0" max="100" value="70" style="width:80px; accent-color:var(--accent-color);">
+          </div>
+        </div>
+
+        <!-- Curated Video Sanctuary Options (Exclusive: Minecraft Rain & Windmills 4K) -->
+        <div style="margin-top:14px;">
+          <span style="font-size:0.75rem; color:var(--text-muted); display:block; margin-bottom:8px; font-weight:600;">🎬 Curated Video Wallpapers:</span>
+          <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:10px;">
+            <button type="button" class="preset-chip yt-preset-btn preset-video-card" data-yt="58YjsK8NYPE" style="background:rgba(17,33,45,0.7); border:1px solid var(--glass-border); border-radius:14px; padding:12px; display:flex; flex-direction:column; align-items:flex-start; gap:6px; cursor:pointer; text-align:left; transition:all 0.2s ease;">
+              <span style="font-size:1.3rem;">🌧️ 🎵</span>
+              <span style="font-size:0.88rem; font-weight:700; color:var(--text-main);">Minecraft Rain & Musicbox</span>
+              <span style="font-size:0.72rem; color:var(--text-muted);">10 Hours • Soft Rain & Calm Music</span>
+            </button>
+            <button type="button" class="preset-chip yt-preset-btn preset-video-card" data-yt="Z90rTdVoomY" style="background:rgba(17,33,45,0.7); border:1px solid var(--glass-border); border-radius:14px; padding:12px; display:flex; flex-direction:column; align-items:flex-start; gap:6px; cursor:pointer; text-align:left; transition:all 0.2s ease;">
+              <span style="font-size:1.3rem;">🌾 💨</span>
+              <span style="font-size:0.88rem; font-weight:700; color:var(--text-main);">Windmills 4K Wallpaper</span>
+              <span style="font-size:0.72rem; color:var(--text-muted);">12 Hours • Ultra HD Screensaver</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div style="border-top:1px solid var(--glass-border); padding-top:14px; margin-top:14px;">
+        <label style="display:block; font-size:0.82rem; font-weight:600; margin-bottom:6px;">Custom Image URL</label>
+        <div style="display:flex; gap:8px;">
+          <input type="url" id="inputCustomBgUrl" class="flocus-input" placeholder="https://images.unsplash.com/..." style="flex:1;">
+          <button id="btnApplyCustomBg" class="glass-pill-btn" style="padding:0 16px;">Apply</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tasks Modal -->
+  <div id="modalTasks" class="glass-modal-overlay">
+    <div class="glass-modal-card">
+      <div class="modal-head">
+        <h3>🎯 Focus Intentions & Tasks</h3>
+        <button class="btn-close-modal" data-close="modalTasks">✕</button>
+      </div>
+      <form id="taskForm" class="task-input-bar">
+        <input type="text" id="taskTitleInput" class="flocus-input" placeholder="What will you conquer next?" style="flex:1;" required>
+        <input type="number" id="taskEstInput" class="flocus-input" min="1" max="10" value="1" style="width:65px; text-align:center;">
+        <button type="submit" class="glass-pill-btn" style="background:var(--accent-color); color:#070a10; font-weight:700;">+ Add</button>
+      </form>
+      <ul id="taskList" class="task-list-items"></ul>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="modalSettings" class="glass-modal-overlay">
+    <div class="glass-modal-card">
+      <div class="modal-head">
+        <h3>⚙️ Personalize Your Space</h3>
+        <button class="btn-close-modal" data-close="modalSettings">✕</button>
+      </div>
+      <div style="margin-bottom:14px;">
+        <label style="display:block; font-size:0.82rem; font-weight:600; margin-bottom:4px;">Your Name / Handle</label>
+        <input type="text" id="inputUserName" class="flocus-input" style="width:100%;" value="Aaqib Majid">
+      </div>
+
+      <!-- Pinterest Lyra Aesthetic Color Palette (Featured: pin.it/7h8c384ds) -->
+      <div style="margin-bottom:16px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+          <label style="font-size:0.82rem; font-weight:600;">Color Palette</label>
+          <span style="font-size:0.75rem; color:var(--accent-color);">Pinterest Pick</span>
+        </div>
+
+        <!-- 6-Swatch Bar Visualizer from pin.it/7h8c384ds -->
+        <div style="background:rgba(17,33,45,0.7); border:1px solid var(--glass-border); border-radius:12px; padding:10px; margin-bottom:10px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; font-size:0.72rem;">
+            <span style="font-weight:700; color:var(--text-main);">Lyra Slate Palette</span>
+            <span style="color:var(--text-muted); font-family:var(--font-mono);">#06141B → #CCD0CF</span>
+          </div>
+          <div style="display:grid; grid-template-columns: repeat(6, 1fr); height:26px; border-radius:7px; overflow:hidden; border:1px solid rgba(255,255,255,0.15); box-shadow:0 4px 10px rgba(0,0,0,0.35);" title="Lyra Palette: #06141B, #11212D, #253745, #4A5C6A, #9BA8AB, #CCD0CF">
+            <div style="background:#06141B;" title="#06141B (Dark Obsidian)"></div>
+            <div style="background:#11212D;" title="#11212D (Midnight Slate)"></div>
+            <div style="background:#253745;" title="#253745 (Steel Charcoal)"></div>
+            <div style="background:#4A5C6A;" title="#4A5C6A (Dusk Slate)"></div>
+            <div style="background:#9BA8AB;" title="#9BA8AB (Silver Mist)"></div>
+            <div style="background:#CCD0CF;" title="#CCD0CF (Frost Pearl)"></div>
+          </div>
+        </div>
+
+        <!-- Theme Switcher Buttons -->
+        <div class="theme-options-grid" id="themeOptionsGrid">
+          <button type="button" class="theme-option-btn active" data-theme="lyra">
+            <span class="theme-preview-dots">
+              <span style="background:#06141B;"></span>
+              <span style="background:#253745;"></span>
+              <span style="background:#9BA8AB;"></span>
+              <span style="background:#CCD0CF;"></span>
+            </span>
+            <span class="theme-name">Lyra Slate</span>
+          </button>
+          <button type="button" class="theme-option-btn" data-theme="cyan">
+            <span class="theme-preview-dots">
+              <span style="background:#070a10;"></span>
+              <span style="background:#0369a1;"></span>
+              <span style="background:#38bdf8;"></span>
+              <span style="background:#f8fafc;"></span>
+            </span>
+            <span class="theme-name">Ocean Cyan</span>
+          </button>
+          <button type="button" class="theme-option-btn" data-theme="sakura">
+            <span class="theme-preview-dots">
+              <span style="background:#120914;"></span>
+              <span style="background:#9d174d;"></span>
+              <span style="background:#f472b6;"></span>
+              <span style="background:#fce7f3;"></span>
+            </span>
+            <span class="theme-name">Anime Sakura</span>
+          </button>
+          <button type="button" class="theme-option-btn" data-theme="emerald">
+            <span class="theme-preview-dots">
+              <span style="background:#061412;"></span>
+              <span style="background:#065f46;"></span>
+              <span style="background:#34d399;"></span>
+              <span style="background:#d1fae5;"></span>
+            </span>
+            <span class="theme-name">Forest Mint</span>
+          </button>
+          <button type="button" class="theme-option-btn" data-theme="amber">
+            <span class="theme-preview-dots">
+              <span style="background:#140d05;"></span>
+              <span style="background:#92400e;"></span>
+              <span style="background:#fbbf24;"></span>
+              <span style="background:#fef3c7;"></span>
+            </span>
+            <span class="theme-name">Cozy Amber</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Timer Typography / Font Selector -->
+      <div style="margin-bottom:16px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+          <label style="font-size:0.82rem; font-weight:600;">Timer Font Style</label>
+          <span style="font-size:0.75rem; color:var(--accent-color);">Live Switch</span>
+        </div>
+        <div class="font-options-grid" id="fontOptionsGrid">
+          <button type="button" class="font-option-btn active" data-font="modern">
+            <span class="font-sample" style="font-family:'Plus Jakarta Sans', sans-serif;">25:00</span>
+            <span class="font-name">Modern Sans</span>
+          </button>
+          <button type="button" class="font-option-btn" data-font="mono">
+            <span class="font-sample" style="font-family:'JetBrains Mono', monospace;">25:00</span>
+            <span class="font-name">Tech Mono</span>
+          </button>
+          <button type="button" class="font-option-btn" data-font="digital">
+            <span class="font-sample" style="font-family:'Orbitron', monospace;">25:00</span>
+            <span class="font-name">Cyber Digital</span>
+          </button>
+          <button type="button" class="font-option-btn" data-font="editorial">
+            <span class="font-sample" style="font-family:'Playfair Display', serif;">25:00</span>
+            <span class="font-name">Luxury Serif</span>
+          </button>
+          <button type="button" class="font-option-btn" data-font="geometric">
+            <span class="font-sample" style="font-family:'Outfit', sans-serif;">25:00</span>
+            <span class="font-name">Geometric</span>
+          </button>
+          <button type="button" class="font-option-btn" data-font="handwritten">
+            <span class="font-sample" style="font-family:'Caveat', cursive;">25:00</span>
+            <span class="font-name">Handwritten</span>
+          </button>
+        </div>
+      </div>
+
+      <div style="margin-bottom:14px;">
+        <label style="display:block; font-size:0.82rem; font-weight:600; margin-bottom:4px;">Durations (Minutes)</label>
+        <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px;">
+          <div><span style="font-size:0.75rem; color:var(--text-muted);">Focus</span><input type="number" id="inputFocusTime" class="flocus-input" style="width:100%;" min="1" max="120" value="25"></div>
+          <div><span style="font-size:0.75rem; color:var(--text-muted);">Break</span><input type="number" id="inputShortBreak" class="flocus-input" style="width:100%;" min="1" max="60" value="5"></div>
+          <div><span style="font-size:0.75rem; color:var(--text-muted);">Long</span><input type="number" id="inputLongBreak" class="flocus-input" style="width:100%;" min="1" max="60" value="15"></div>
+        </div>
+      </div>
+      <div style="margin-bottom:14px;">
+        <label style="display:block; font-size:0.82rem; font-weight:600; margin-bottom:4px;">Completion Tone</label>
+        <div style="display:flex; gap:8px;">
+          <select id="selectAlarmTone" class="flocus-input" style="flex:1;">
+            <option value="bowl">🧘 Tibetan Singing Bowl</option>
+            <option value="marimba">🎵 Bright Marimba</option>
+            <option value="ding">🔔 Classic Bell</option>
+            <option value="digital">📟 Retro Digital</option>
+          </select>
+          <button id="btnTestSound" class="glass-pill-btn" type="button">Test 🔊</button>
+        </div>
+      </div>
+      <button id="btnSaveSettings" class="glass-pill-btn" style="width:100%; justify-content:center; background:var(--accent-color); color:#070a10; font-weight:700;">Save Preferences</button>
+    </div>
+  </div>
+
+  <script>
+    // --- 1. Audio Engine ---
+    class SoundEngine {
+      constructor() {
+        this.ctx = null; this.masterGain = null; this.masterVolume = 0.8; this.alarmVolume = 0.7; this.alarmTone = 'bowl';
+        this.tracks = {
+          rain: { active: false, volume: 0.5, gain: null, source: null, aux: [] },
+          waves: { active: false, volume: 0.4, gain: null, source: null, aux: [] },
+          forest: { active: false, volume: 0.35, gain: null, source: null, aux: [], interval: null },
+          lofi: { active: false, volume: 0.4, gain: null, source: null, aux: [], interval: null },
+          binaural: { active: false, volume: 0.3, gain: null, source: null, aux: [] },
+          brownnoise: { active: false, volume: 0.35, gain: null, source: null, aux: [] },
+          campfire: { active: false, volume: 0.4, gain: null, source: null, aux: [], interval: null },
+        };
+      }
+      init() {
+        if (!this.ctx) {
+          const AudioCtx = window.AudioContext || window.webkitAudioContext;
+          this.ctx = new AudioCtx();
+          this.masterGain = this.ctx.createGain();
+          this.masterGain.gain.setValueAtTime(this.masterVolume, this.ctx.currentTime);
+          this.masterGain.connect(this.ctx.destination);
+        }
+        if (this.ctx.state === 'suspended') this.ctx.resume();
+      }
+      createNoiseBuffer(type = 'pink', duration = 5) {
+        if (!this.ctx) this.init();
+        const bufferSize = this.ctx.sampleRate * duration;
+        const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        if (type === 'brown') {
+          let lastOut = 0.0;
+          for (let i = 0; i < bufferSize; i++) {
+            const white = Math.random() * 2 - 1;
+            data[i] = (lastOut + (0.02 * white)) / 1.02;
+            lastOut = data[i]; data[i] *= 3.5;
+          }
+        } else {
+          let b0=0, b1=0, b2=0, b3=0, b4=0, b5=0, b6=0;
+          for (let i = 0; i < bufferSize; i++) {
+            const white = Math.random() * 2 - 1;
+            b0 = 0.99886 * b0 + white * 0.0555179;
+            b1 = 0.99332 * b1 + white * 0.0750759;
+            b2 = 0.96900 * b2 + white * 0.1538520;
+            b3 = 0.86650 * b3 + white * 0.3104856;
+            b4 = 0.55000 * b4 + white * 0.5329522;
+            b5 = -0.7616 * b5 - white * 0.0168980;
+            data[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.11;
+            b6 = white * 0.115926;
+          }
+        }
+        return buffer;
+      }
+      toggleTrack(trackName) {
+        const track = this.tracks[trackName]; if (!track) return false;
+        track.active ? this.stopTrack(trackName) : this.startTrack(trackName);
+        return track.active;
+      }
+      setTrackVolume(trackName, volume) {
+        const track = this.tracks[trackName]; if (!track) return;
+        track.volume = Math.max(0, Math.min(1, volume));
+        if (track.gain) track.gain.gain.setValueAtTime(track.volume, this.ctx.currentTime);
+      }
+      startTrack(trackName) {
+        this.init(); const track = this.tracks[trackName]; if (!track) return;
+        this.stopTrack(trackName); track.active = true;
+        const now = this.ctx.currentTime; const trackGain = this.ctx.createGain();
+        trackGain.gain.setValueAtTime(track.volume, now);
+        trackGain.connect(this.masterGain); track.gain = trackGain;
+
+        if (trackName === 'rain') {
+          const buffer = this.createNoiseBuffer('pink', 5);
+          const src = this.ctx.createBufferSource(); src.buffer = buffer; src.loop = true;
+          const filter = this.ctx.createBiquadFilter(); filter.type = 'lowpass'; filter.frequency.value = 1100;
+          src.connect(filter); filter.connect(trackGain); src.start();
+          track.source = src; track.aux.push(filter);
+        } else if (trackName === 'waves') {
+          const buffer = this.createNoiseBuffer('brown', 6);
+          const src = this.ctx.createBufferSource(); src.buffer = buffer; src.loop = true;
+          const filter = this.ctx.createBiquadFilter(); filter.type = 'lowpass'; filter.frequency.value = 320;
+          const lfo = this.ctx.createOscillator(); const lfoGain = this.ctx.createGain();
+          lfo.frequency.value = 0.12; lfoGain.gain.value = 260;
+          lfo.connect(filter.frequency); lfo.start();
+          src.connect(filter); filter.connect(trackGain); src.start();
+          track.source = src; track.aux.push(filter, lfo, lfoGain);
+        } else if (trackName === 'forest') {
+          const buffer = this.createNoiseBuffer('pink', 5);
+          const src = this.ctx.createBufferSource(); src.buffer = buffer; src.loop = true;
+          const filter = this.ctx.createBiquadFilter(); filter.type = 'bandpass'; filter.frequency.value = 450; filter.Q.value = 1.2;
+          const bg = this.ctx.createGain(); bg.gain.value = 0.3;
+          src.connect(filter); filter.connect(bg); bg.connect(trackGain); src.start();
+          track.source = src; track.aux.push(filter, bg);
+          track.interval = setInterval(() => {
+            if (!track.active) return;
+            try {
+              const t = this.ctx.currentTime; const osc = this.ctx.createOscillator(); const cg = this.ctx.createGain();
+              osc.type = 'sine'; osc.frequency.setValueAtTime(2600 + Math.random() * 800, t);
+              osc.frequency.exponentialRampToValueAtTime(3200, t + 0.08);
+              cg.gain.setValueAtTime(0, t); cg.gain.linearRampToValueAtTime(0.18, t + 0.02); cg.gain.exponentialRampToValueAtTime(0.001, t + 0.18);
+              osc.connect(cg); cg.connect(trackGain); osc.start(t); osc.stop(t + 0.2);
+            } catch(e){}
+          }, 3500);
+        } else if (trackName === 'lofi') {
+          const buffer = this.createNoiseBuffer('brown', 5);
+          const src = this.ctx.createBufferSource(); src.buffer = buffer; src.loop = true;
+          const filter = this.ctx.createBiquadFilter(); filter.type = 'lowpass'; filter.frequency.value = 400;
+          src.connect(filter); filter.connect(trackGain); src.start(); track.source = src;
+          const osc1 = this.ctx.createOscillator(); const osc2 = this.ctx.createOscillator(); const og = this.ctx.createGain();
+          osc1.type = 'sine'; osc1.frequency.value = 174.61; osc2.type = 'sine'; osc2.frequency.value = 261.63; og.gain.value = 0.04;
+          osc1.connect(og); osc2.connect(og); og.connect(trackGain); osc1.start(); osc2.start();
+          track.aux.push(filter, osc1, osc2, og);
+          track.interval = setInterval(() => {
+            if (!track.active) return;
+            try {
+              const t = this.ctx.currentTime; const osc = this.ctx.createOscillator(); const pg = this.ctx.createGain();
+              osc.type = 'triangle'; osc.frequency.setValueAtTime(1400 + Math.random() * 2000, t);
+              pg.gain.setValueAtTime(0.05, t); pg.gain.exponentialRampToValueAtTime(0.001, t + 0.02);
+              osc.connect(pg); pg.connect(trackGain); osc.start(t); osc.stop(t + 0.025);
+            } catch(e){}
+          }, 700);
+        } else if (trackName === 'binaural') {
+          const merger = this.ctx.createChannelMerger(2);
+          const oL = this.ctx.createOscillator(); const oR = this.ctx.createOscillator(); const cg = this.ctx.createGain();
+          oL.type = 'sine'; oL.frequency.value = 200; oR.type = 'sine'; oR.frequency.value = 240; cg.gain.value = 0.22;
+          oL.connect(merger, 0, 0); oR.connect(merger, 0, 1); merger.connect(cg); cg.connect(trackGain);
+          oL.start(); oR.start(); track.aux.push(oL, oR, merger, cg);
+        } else if (trackName === 'brownnoise') {
+          const buffer = this.createNoiseBuffer('brown', 5);
+          const src = this.ctx.createBufferSource(); src.buffer = buffer; src.loop = true;
+          const filter = this.ctx.createBiquadFilter(); filter.type = 'lowpass'; filter.frequency.value = 500;
+          src.connect(filter); filter.connect(trackGain); src.start();
+          track.source = src; track.aux.push(filter);
+        } else if (trackName === 'campfire') {
+          const buffer = this.createNoiseBuffer('brown', 5);
+          const src = this.ctx.createBufferSource(); src.buffer = buffer; src.loop = true;
+          const filter = this.ctx.createBiquadFilter(); filter.type = 'lowpass'; filter.frequency.value = 550;
+          src.connect(filter); filter.connect(trackGain); src.start(); track.source = src; track.aux.push(filter);
+          track.interval = setInterval(() => {
+            if (!track.active) return;
+            try {
+              const t = this.ctx.currentTime; const osc = this.ctx.createOscillator(); const pg = this.ctx.createGain();
+              osc.type = 'square'; osc.frequency.setValueAtTime(200 + Math.random() * 700, t);
+              pg.gain.setValueAtTime(0.08, t); pg.gain.exponentialRampToValueAtTime(0.001, t + 0.035);
+              osc.connect(pg); pg.connect(trackGain); osc.start(t); osc.stop(t + 0.04);
+            } catch(e){}
+          }, 450);
+        }
+      }
+      stopTrack(trackName) {
+        const track = this.tracks[trackName]; if (!track) return;
+        track.active = false;
+        if (track.interval) { clearInterval(track.interval); track.interval = null; }
+        if (track.source) { try { track.source.stop(); track.source.disconnect(); } catch(e){} track.source = null; }
+        track.aux.forEach(n => { try { if (n.stop) n.stop(); n.disconnect(); } catch(e){} });
+        track.aux = [];
+        if (track.gain) { try { track.gain.disconnect(); } catch(e){} track.gain = null; }
+      }
+      stopAllTracks() { Object.keys(this.tracks).forEach(n => this.stopTrack(n)); }
+      applyPreset(preset) {
+        this.stopAllTracks();
+        if (preset === 'rainy-cafe') { this.setTrackVolume('rain', 0.55); this.setTrackVolume('lofi', 0.4); this.startTrack('rain'); this.startTrack('lofi'); }
+        else if (preset === 'deep-focus') { this.setTrackVolume('binaural', 0.45); this.setTrackVolume('brownnoise', 0.35); this.startTrack('binaural'); this.startTrack('brownnoise'); }
+        else if (preset === 'cabin-hearth') { this.setTrackVolume('campfire', 0.5); this.setTrackVolume('forest', 0.3); this.startTrack('campfire'); this.startTrack('forest'); }
+        else if (preset === 'moonlit-ocean') { this.setTrackVolume('waves', 0.55); this.setTrackVolume('rain', 0.25); this.startTrack('waves'); this.startTrack('rain'); }
+      }
+      playAlarm() {
+        this.init(); const now = this.ctx.currentTime; const master = this.ctx.createGain();
+        master.gain.setValueAtTime(this.alarmVolume, now); master.connect(this.ctx.destination);
+        [{ f: 432, g: 0.6, d: 3.5 }, { f: 864, g: 0.25, d: 2.8 }, { f: 1296, g: 0.15, d: 2.0 }].forEach(h => {
+          const osc = this.ctx.createOscillator(); const g = this.ctx.createGain();
+          osc.type = 'sine'; osc.frequency.setValueAtTime(h.f, now);
+          g.gain.setValueAtTime(0, now); g.gain.linearRampToValueAtTime(h.g, now + 0.04);
+          g.gain.exponentialRampToValueAtTime(0.0001, now + h.d);
+          osc.connect(g); g.connect(master); osc.start(now); osc.stop(now + h.d + 0.1);
+        });
+      }
+      playClick() {
+        try {
+          this.init(); const now = this.ctx.currentTime; const osc = this.ctx.createOscillator(); const g = this.ctx.createGain();
+          osc.type = 'sine'; osc.frequency.setValueAtTime(800, now); osc.frequency.exponentialRampToValueAtTime(400, now + 0.03);
+          g.gain.setValueAtTime(0.06, now); g.gain.exponentialRampToValueAtTime(0.001, now + 0.03);
+          osc.connect(g); g.connect(this.ctx.destination); osc.start(now); osc.stop(now + 0.04);
+        } catch(e){}
+      }
+    }
+
+    // --- 2. Live Scenic Wallpaper ---
+    class LiveWallpaper {
+      constructor(canvasId) {
+        this.canvas = document.getElementById(canvasId); if (!this.canvas) return;
+        this.ctx = this.canvas.getContext('2d'); this.activeScene = 'rain';
+        this.drops = []; this.particles = []; this.petals = []; this.sparks = [];
+        this.init();
+      }
+      init() {
+        this.resize(); window.addEventListener('resize', () => this.resize());
+        this.initScene(this.activeScene); this.animate();
+      }
+      resize() {
+        this.width = window.innerWidth; this.height = window.innerHeight;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        this.canvas.width = this.width * dpr; this.canvas.height = this.height * dpr;
+        this.ctx.scale(dpr, dpr); this.initScene(this.activeScene);
+      }
+      setScene(scene) { this.activeScene = scene; this.initScene(scene); }
+      initScene(scene) {
+        this.drops = []; this.particles = []; this.petals = []; this.sparks = [];
+        if (scene === 'rain') {
+          for (let i = 0; i < 110; i++) this.drops.push({ x: Math.random() * this.width, y: Math.random() * this.height, len: Math.random() * 20 + 10, speed: Math.random() * 6 + 4, opacity: Math.random() * 0.4 + 0.25 });
+        } else if (scene === 'aurora') {
+          for (let i = 0; i < 120; i++) this.particles.push({ x: Math.random() * this.width, y: Math.random() * this.height, radius: Math.random() * 1.8 + 0.6, baseAlpha: Math.random() * 0.6 + 0.3, phase: Math.random() * Math.PI * 2, speed: 0.02 + Math.random() * 0.03 });
+        } else if (scene === 'sakura') {
+          for (let i = 0; i < 45; i++) this.petals.push({ x: Math.random() * this.width, y: Math.random() * this.height, size: Math.random() * 8 + 6, vx: Math.random() * 1.2 + 0.6, vy: Math.random() * 1.5 + 0.8, rot: Math.random() * Math.PI * 2, rotSpeed: (Math.random() - 0.5) * 0.04, flip: Math.random(), flipSpeed: Math.random() * 0.03 + 0.01, alpha: Math.random() * 0.4 + 0.5 });
+        } else {
+          for (let i = 0; i < 55; i++) this.sparks.push({ x: this.width * 0.3 + Math.random() * (this.width * 0.4), y: this.height + Math.random() * 40, radius: Math.random() * 2.8 + 1, vy: -(Math.random() * 2 + 1.2), vx: (Math.random() - 0.5) * 0.8, alpha: Math.random() * 0.6 + 0.4, life: 0, maxLife: Math.random() * 180 + 100 });
+        }
+      }
+      animate() {
+        const ctx = this.ctx; const w = this.width; const h = this.height; const time = performance.now() * 0.001;
+        if (this.activeScene === 'rain') {
+          const g = ctx.createLinearGradient(0, 0, 0, h);
+          g.addColorStop(0, '#06141B'); g.addColorStop(0.5, '#11212D'); g.addColorStop(1, '#253745');
+          ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+          ctx.lineWidth = 1.2;
+          for (let i = 0; i < this.drops.length; i++) {
+            const d = this.drops[i];
+            ctx.beginPath(); ctx.moveTo(d.x, d.y); ctx.lineTo(d.x - 1, d.y + d.len);
+            ctx.strokeStyle = `rgba(204, 208, 207, ${d.opacity})`; ctx.stroke();
+            d.y += d.speed; d.x -= 0.5;
+            if (d.y > h) { d.y = -d.len; d.x = Math.random() * (w + 100); }
+          }
+        } else if (this.activeScene === 'aurora') {
+          const g = ctx.createLinearGradient(0, 0, 0, h);
+          g.addColorStop(0, '#06141B'); g.addColorStop(0.6, '#11212D'); g.addColorStop(1, '#253745');
+          ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+          for (let i = 0; i < this.particles.length; i++) {
+            const p = this.particles[i]; p.phase += p.speed;
+            const alpha = Math.max(0.1, p.baseAlpha + Math.sin(p.phase) * 0.35);
+            ctx.beginPath(); ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(240, 246, 255, ${alpha})`; ctx.fill();
+          }
+        } else if (this.activeScene === 'sakura') {
+          const g = ctx.createLinearGradient(0, 0, 0, h);
+          g.addColorStop(0, '#1d121c'); g.addColorStop(0.5, '#2b1626'); g.addColorStop(1, '#3b1c2b');
+          ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+          for (let i = 0; i < this.petals.length; i++) {
+            const p = this.petals[i]; p.rot += p.rotSpeed; p.flip += p.flipSpeed;
+            p.x += p.vx + Math.sin(time + i) * 0.4; p.y += p.vy;
+            if (p.x > w + 20) p.x = -20; if (p.y > h + 20) p.y = -20;
+            ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot); ctx.scale(Math.sin(p.flip), 1);
+            ctx.beginPath(); ctx.moveTo(0, 0);
+            ctx.bezierCurveTo(-p.size, -p.size * 0.8, -p.size * 0.6, -p.size * 1.4, 0, -p.size * 1.8);
+            ctx.bezierCurveTo(p.size * 0.6, -p.size * 1.4, p.size, -p.size * 0.8, 0, 0);
+            ctx.fillStyle = `rgba(251, 182, 206, ${p.alpha})`; ctx.fill(); ctx.restore();
+          }
+        } else {
+          const g = ctx.createLinearGradient(0, 0, 0, h);
+          g.addColorStop(0, '#0d080a'); g.addColorStop(0.7, '#1c1012'); g.addColorStop(1, '#2c1412');
+          ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+          for (let i = 0; i < this.sparks.length; i++) {
+            const s = this.sparks[i]; s.life++; s.x += s.vx; s.y += s.vy;
+            const progress = s.life / s.maxLife;
+            if (progress >= 1 || s.y < -20) { s.life = 0; s.x = w * 0.3 + Math.random() * (w * 0.4); s.y = h + Math.random() * 20; }
+            ctx.beginPath(); ctx.arc(s.x, s.y, s.radius * (1 - progress * 0.5), 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(254, 215, 170, ${(1 - progress) * s.alpha})`; ctx.fill();
+          }
+        }
+        requestAnimationFrame(() => this.animate());
+      }
+    }
+
+    // --- 3. Pomodoro Timer State Engine ---
+    class PomodoroTimer {
+      constructor(options = {}) {
+        this.durations = { focus: (options.focusTime || 25) * 60, shortBreak: (options.shortBreakTime || 5) * 60, longBreak: (options.longBreakTime || 15) * 60 };
+        this.longBreakInterval = 4; this.mode = 'focus'; this.state = 'idle';
+        this.remainingSeconds = this.durations.focus; this.cycleCount = 0; this.timerId = null;
+        this.onTick = options.onTick || (() => {}); this.onStateChange = options.onStateChange || (() => {});
+        this.onModeChange = options.onModeChange || (() => {}); this.onComplete = options.onComplete || (() => {});
+        this.loadStats();
+      }
+      get totalDuration() { return this.durations[this.mode]; }
+      get progressPercentage() { return Math.min(100, Math.max(0, ((this.totalDuration - this.remainingSeconds) / this.totalDuration) * 100)); }
+      start() {
+        if (this.state === 'running') return;
+        this.state = 'running'; this.onStateChange(this.state);
+        const startTime = Date.now(); const initialRemaining = this.remainingSeconds;
+        this.timerId = setInterval(() => {
+          const elapsed = Math.floor((Date.now() - startTime) / 1000);
+          this.remainingSeconds = Math.max(0, initialRemaining - elapsed);
+          this.onTick({ remaining: this.remainingSeconds, total: this.totalDuration, percentage: this.progressPercentage, mode: this.mode });
+          if (this.remainingSeconds <= 0) this.completeSession();
+        }, 250);
+      }
+      pause() { if (this.state !== 'running') return; clearInterval(this.timerId); this.timerId = null; this.state = 'paused'; this.onStateChange(this.state); }
+      toggle() { this.state === 'running' ? this.pause() : this.start(); }
+      reset() { clearInterval(this.timerId); this.timerId = null; this.state = 'idle'; this.remainingSeconds = this.totalDuration; this.onStateChange(this.state); this.onTick({ remaining: this.remainingSeconds, total: this.totalDuration, percentage: 0, mode: this.mode }); }
+      skip() { clearInterval(this.timerId); this.timerId = null; this.nextMode(); }
+      switchMode(newMode) {
+        clearInterval(this.timerId); this.timerId = null; this.mode = newMode; this.state = 'idle';
+        this.remainingSeconds = this.durations[newMode]; this.onModeChange(this.mode); this.onStateChange(this.state);
+        this.onTick({ remaining: this.remainingSeconds, total: this.totalDuration, percentage: 0, mode: this.mode });
+      }
+      completeSession() {
+        clearInterval(this.timerId); this.timerId = null; this.state = 'idle';
+        if (this.mode === 'focus') { this.cycleCount++; this.recordFocusSession(Math.round(this.durations.focus / 60)); }
+        this.onComplete(this.mode); this.nextMode();
+      }
+      nextMode() {
+        let next = 'focus';
+        if (this.mode === 'focus') { next = this.cycleCount >= this.longBreakInterval ? 'longBreak' : 'shortBreak'; if (next === 'longBreak') this.cycleCount = 0; }
+        this.mode = next; this.remainingSeconds = this.durations[next]; this.onModeChange(this.mode);
+        this.onTick({ remaining: this.remainingSeconds, total: this.totalDuration, percentage: 0, mode: this.mode }); this.onStateChange('idle');
+      }
+      updateDurations(focusMin, shortMin, longMin) {
+        this.durations.focus = Math.max(1, focusMin) * 60; this.durations.shortBreak = Math.max(1, shortMin) * 60; this.durations.longBreak = Math.max(1, longMin) * 60;
+        if (this.state === 'idle') { this.remainingSeconds = this.totalDuration; this.onTick({ remaining: this.remainingSeconds, total: this.totalDuration, percentage: 0, mode: this.mode }); }
+      }
+      loadStats() { try { this.stats = JSON.parse(localStorage.getItem('flocus_stats') || '{}'); } catch(e){ this.stats = {}; } }
+      saveStats() { try { localStorage.setItem('flocus_stats', JSON.stringify(this.stats)); } catch(e){} }
+      recordFocusSession(minutes) {
+        this.loadStats(); const d = new Date(); const today = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+        if (!this.stats[today]) this.stats[today] = { sessions: 0, minutes: 0 };
+        this.stats[today].sessions++; this.stats[today].minutes += minutes;
+        this.stats.streak = (this.stats.streak || 0) + 1; this.saveStats();
+      }
+      getTodayStats() {
+        this.loadStats(); const d = new Date(); const today = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+        return { sessions: this.stats[today]?.sessions || 0, minutes: this.stats[today]?.minutes || 0, streak: this.stats.streak || 0 };
+      }
+    }
+
+    // --- 4. Task Manager ---
+    class TaskManager {
+      constructor(options = {}) {
+        this.storageKey = 'flocus_tasks'; this.tasks = []; this.activeTaskId = null;
+        this.onTasksChange = options.onTasksChange || (() => {}); this.load();
+      }
+      load() {
+        try {
+          const d = localStorage.getItem(this.storageKey);
+          this.tasks = d ? JSON.parse(d) : [
+            { id: 't1', title: 'Deep focus study block', targetCount: 2, completedCount: 0, done: false },
+            { id: 't2', title: 'Review notes & wrap up', targetCount: 1, completedCount: 0, done: false }
+          ];
+          const active = this.tasks.find(t => !t.done); this.activeTaskId = active ? active.id : (this.tasks[0]?.id || null);
+        } catch(e) { this.tasks = []; }
+      }
+      save() { try { localStorage.setItem(this.storageKey, JSON.stringify(this.tasks)); } catch(e){} this.onTasksChange(this.tasks, this.getActiveTask()); }
+      addTask(title, targetCount = 1) {
+        if (!title.trim()) return;
+        const newTask = { id: 't-' + Date.now(), title: title.trim(), targetCount: Math.max(1, parseInt(targetCount, 10) || 1), completedCount: 0, done: false };
+        this.tasks.push(newTask); if (!this.activeTaskId) this.activeTaskId = newTask.id; this.save();
+      }
+      deleteTask(id) {
+        this.tasks = this.tasks.filter(t => t.id !== id);
+        if (this.activeTaskId === id) { const n = this.tasks.find(t => !t.done); this.activeTaskId = n ? n.id : null; }
+        this.save();
+      }
+      toggleTask(id) {
+        const task = this.tasks.find(t => t.id === id);
+        if (task) {
+          task.done = !task.done;
+          if (task.done && this.activeTaskId === id) { const n = this.tasks.find(t => !t.done); this.activeTaskId = n ? n.id : null; }
+          else if (!task.done && !this.activeTaskId) { this.activeTaskId = task.id; }
+          this.save();
+        }
+      }
+      setActiveTask(id) { if (this.tasks.some(t => t.id === id)) { this.activeTaskId = id; this.save(); } }
+      getActiveTask() { return this.tasks.find(t => t.id === this.activeTaskId) || null; }
+      incrementActiveTask() {
+        const a = this.getActiveTask();
+        if (a && !a.done) {
+          a.completedCount++;
+          if (a.completedCount >= a.targetCount) { a.done = true; const n = this.tasks.find(t => !t.done); this.activeTaskId = n ? n.id : null; }
+          this.save();
+        }
+      }
+    }
+
+    // --- 5. Application Glue ---
+    document.addEventListener('DOMContentLoaded', () => {
+      const defaultPrefs = { userName: 'Aaqib Majid', mantraIndex: 0, theme: 'lyra', activeScene: 'rain', youtubeVideoId: '', youtubeSoundOn: false, youtubeVolume: 70, focusTime: 25, shortBreakTime: 5, longBreakTime: 15, timerFont: 'modern', currentView: 'pomodoro' };
+      const prefs = { ...defaultPrefs, ...JSON.parse(localStorage.getItem('flocus_preferences') || '{}') };
+
+      // Pinterest Lyra Palette System (pin.it/7h8c384ds)
+      function applyTheme(themeKey) {
+        const validThemes = ['lyra', 'cyan', 'sakura', 'emerald', 'amber'];
+        if (!validThemes.includes(themeKey)) themeKey = 'lyra';
+        prefs.theme = themeKey;
+        document.documentElement.setAttribute('data-theme', themeKey);
+        document.querySelectorAll('.theme-option-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.theme === themeKey);
+        });
+        try { localStorage.setItem('flocus_preferences', JSON.stringify(prefs)); } catch(e){}
+      }
+
+      document.querySelectorAll('.theme-option-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          audio.playClick();
+          applyTheme(btn.dataset.theme);
+        });
+      });
+
+      // Timer Typography Font Manager
+      const fontMap = {
+        modern: { label: 'Modern', val: 'var(--font-timer-modern)' },
+        mono: { label: 'Mono', val: 'var(--font-timer-mono)' },
+        digital: { label: 'Digital', val: 'var(--font-timer-digital)' },
+        editorial: { label: 'Serif', val: 'var(--font-timer-editorial)' },
+        geometric: { label: 'Geometric', val: 'var(--font-timer-geometric)' },
+        handwritten: { label: 'Handwritten', val: 'var(--font-timer-handwritten)' }
+      };
+      const fontKeys = Object.keys(fontMap);
+
+      function applyTimerFont(fontKey) {
+        if (!fontMap[fontKey]) fontKey = 'modern';
+        prefs.timerFont = fontKey;
+        document.documentElement.style.setProperty('--font-timer', fontMap[fontKey].val);
+        const navLabel = document.getElementById('fontNavLabel');
+        if (navLabel) navLabel.textContent = fontMap[fontKey].label;
+        document.querySelectorAll('.font-option-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.font === fontKey);
+        });
+        try { localStorage.setItem('flocus_preferences', JSON.stringify(prefs)); } catch(e){}
+      }
+
+      function cycleTimerFont() {
+        audio.playClick();
+        const curr = fontKeys.indexOf(prefs.timerFont || 'modern');
+        const next = (curr + 1) % fontKeys.length;
+        applyTimerFont(fontKeys[next]);
+      }
+
+      const btnFontCycle = document.getElementById('btnFontCycle');
+      if (btnFontCycle) btnFontCycle.addEventListener('click', cycleTimerFont);
+
+      document.querySelectorAll('.font-option-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          audio.playClick();
+          applyTimerFont(btn.dataset.font);
+        });
+      });
+      const mantras = [
+        "What would you like to accomplish today?",
+        "Small consistent steps lead to giant breakthroughs.",
+        "One session, one intention, deep flow.",
+        "Breathe in clarity, exhale distraction.",
+        "Romanticize your study & deep work session.",
+      ];
+
+      const audio = new SoundEngine();
+      const wallpaper = new LiveWallpaper('liveWallpaperCanvas');
+      if (wallpaper) wallpaper.setScene(prefs.activeScene);
+
+      const tasks = new TaskManager({ onTasksChange: (taskList, active) => renderTasks(taskList, active) });
+      const timer = new PomodoroTimer({
+        focusTime: prefs.focusTime, shortBreakTime: prefs.shortBreakTime, longBreakTime: prefs.longBreakTime,
+        onTick: updateTimerDisplay, onStateChange: handleTimerStateChange, onModeChange: handleTimerModeChange,
+        onComplete: (mode) => { audio.playAlarm(); if (mode === 'focus') tasks.incrementActiveTask(); refreshStats(); }
+      });
+
+      const elGreeting = document.getElementById('userGreeting');
+      const elMantra = document.getElementById('userMantra');
+      const elTimeDisplay = document.getElementById('timeDisplay');
+      const elStatusLabel = document.getElementById('statusLabel');
+      const elProgressCircle = document.getElementById('progressCircle');
+      const elCycleDots = document.getElementById('cycleDots');
+      const elBtnToggle = document.getElementById('btnToggle');
+      const elActiveTaskBanner = document.getElementById('activeTaskBanner');
+      const elActiveSoundsCount = document.getElementById('activeSoundsCount');
+
+      const elYtContainer = document.getElementById('youtubeBgContainer');
+      const elYtIframe = document.getElementById('youtubeBgIframe');
+      const elBtnToggleYtAudio = document.getElementById('btnToggleYtAudio');
+      const elYtAudioIcon = document.getElementById('ytAudioIcon');
+      const elYtAudioLabel = document.getElementById('ytAudioLabel');
+      const elCheckYtSound = document.getElementById('checkYtSound');
+      const elSliderYtVol = document.getElementById('sliderYtVol');
+      const elInputYtUrl = document.getElementById('inputYoutubeUrl');
+      const elLiveCanvas = document.getElementById('liveWallpaperCanvas');
+
+      const CIRCLE_CIRCUMFERENCE = 2 * Math.PI * 135;
+      elProgressCircle.style.strokeDasharray = `${CIRCLE_CIRCUMFERENCE}`;
+
+      function updateGreeting() {
+        const hour = new Date().getHours();
+        let greeting = "Good morning";
+        if (hour >= 12 && hour < 17) greeting = "Good afternoon";
+        else if (hour >= 17 && hour < 22) greeting = "Good evening";
+        else if (hour >= 22 || hour < 5) greeting = "Midnight flow";
+        elGreeting.textContent = `${greeting}, ${prefs.userName}`;
+        elMantra.textContent = mantras[prefs.mantraIndex % mantras.length];
+      }
+
+      elMantra.addEventListener('click', () => {
+        prefs.mantraIndex = (prefs.mantraIndex + 1) % mantras.length;
+        elMantra.textContent = mantras[prefs.mantraIndex];
+        try { localStorage.setItem('flocus_preferences', JSON.stringify(prefs)); } catch(e){}
+      });
+
+      // View Toggle
+      let clockInterval = null;
+      function setViewMode(view) {
+        prefs.currentView = view;
+        const pomCard = document.getElementById('pomodoroHeroCard');
+        const pomTabs = document.getElementById('pomodoroTabs');
+        const clkCard = document.getElementById('ambientClockCard');
+        const btnLabel = document.getElementById('viewToggleLabel');
+        if (view === 'clock') {
+          pomCard.style.display = 'none'; pomTabs.style.display = 'none'; clkCard.style.display = 'flex';
+          btnLabel.textContent = 'Timer';
+          const tick = () => {
+            const now = new Date(); let h = now.getHours(); const m = String(now.getMinutes()).padStart(2,'0'); const s = String(now.getSeconds()).padStart(2,'0');
+            const ampm = h >= 12 ? 'PM' : 'AM'; h = h % 12 || 12;
+            document.getElementById('clockTimeDisplay').textContent = `${h}:${m}:${s} ${ampm}`;
+            document.getElementById('clockDateDisplay').textContent = now.toLocaleDateString(undefined, { weekday:'long', month:'long', day:'numeric', year:'numeric'});
+          };
+          tick(); clockInterval = setInterval(tick, 1000);
+        } else {
+          pomCard.style.display = 'flex'; pomTabs.style.display = 'inline-flex'; clkCard.style.display = 'none';
+          btnLabel.textContent = 'Clock';
+          if (clockInterval) clearInterval(clockInterval);
+        }
+        try { localStorage.setItem('flocus_preferences', JSON.stringify(prefs)); } catch(e){}
+      }
+
+      document.getElementById('btnViewToggle').addEventListener('click', () => {
+        audio.playClick();
+        setViewMode(prefs.currentView === 'pomodoro' ? 'clock' : 'pomodoro');
+      });
+
+      function updateTimerDisplay({ remaining, percentage }) {
+        const mins = Math.floor(remaining / 60); const secs = remaining % 60;
+        elTimeDisplay.textContent = `${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
+        const offset = CIRCLE_CIRCUMFERENCE - (percentage / 100) * CIRCLE_CIRCUMFERENCE;
+        elProgressCircle.style.strokeDashoffset = `${offset}`;
+
+        elCycleDots.innerHTML = '';
+        const cur = timer.cycleCount % timer.longBreakInterval;
+        for (let i = 0; i < timer.longBreakInterval; i++) {
+          const dot = document.createElement('div');
+          dot.className = `cycle-dot ${i < cur ? 'filled' : ''}`;
+          elCycleDots.appendChild(dot);
+        }
+      }
+
+      function handleTimerStateChange(state) {
+        if (state === 'running') {
+          elBtnToggle.innerHTML = `<svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg><span>Pause</span>`;
+          elStatusLabel.textContent = timer.mode === 'focus' ? 'Deep Flow Session' : 'Recharge Break';
+        } else {
+          elBtnToggle.innerHTML = `<svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><span>Start</span>`;
+          elStatusLabel.textContent = state === 'paused' ? 'Paused' : 'Ready to focus';
+        }
+      }
+
+      function handleTimerModeChange(mode) {
+        document.querySelectorAll('.mode-tab-btn').forEach(b => b.classList.toggle('active', b.dataset.mode === mode));
+      }
+
+      function refreshStats() {
+        const stats = timer.getTodayStats();
+        document.getElementById('statTodaySessions').textContent = stats.sessions;
+        document.getElementById('statTodayMins').textContent = stats.minutes;
+        document.getElementById('statStreakDays').textContent = stats.streak;
+      }
+
+      elBtnToggle.addEventListener('click', () => { audio.playClick(); timer.toggle(); });
+      document.getElementById('btnReset').addEventListener('click', () => { audio.playClick(); timer.reset(); });
+      document.getElementById('btnSkip').addEventListener('click', () => { audio.playClick(); timer.skip(); });
+
+      document.querySelectorAll('.mode-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => { audio.playClick(); timer.switchMode(btn.dataset.mode); });
+      });
+
+      // --- Multi-Engine Live Video Wallpaper (Native MP4 & YouTube Embed) ---
+      const elNativeVideo = document.getElementById('nativeBgVideo');
+      let activeVideoType = 'none';
+
+      function extractYouTubeId(url) {
+        if (!url) return null;
+        const clean = url.trim();
+        const match = clean.match(/(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|live\/|shorts\/))([\w-]{11})/);
+        return match ? match[1] : (clean.length === 11 ? clean : null);
+      }
+
+      function loadVideoWallpaper(urlOrId, soundOn = false, volume = 70) {
+        if (!urlOrId) { clearVideoWallpaper(true); return; }
+        const clean = urlOrId.trim();
+        const ytId = extractYouTubeId(clean);
+        const isDirect = clean.match(/\.(mp4|webm|ogg|mov)(\?.*)?$/i) || (!ytId && (clean.startsWith('http://') || clean.startsWith('https://')));
+
+        prefs.youtubeVideoId = ytId || clean;
+        prefs.youtubeSoundOn = soundOn;
+        prefs.youtubeVolume = volume;
+
+        if (elLiveCanvas) elLiveCanvas.style.opacity = '0';
+        document.body.style.backgroundImage = 'none';
+        elYtContainer.style.display = 'block';
+
+        const muteParam = soundOn ? 0 : 1;
+
+        if (isDirect && !ytId) {
+          activeVideoType = 'native';
+          if (elYtIframe) { elYtIframe.src = ''; elYtIframe.style.display = 'none'; }
+          if (elNativeVideo) {
+            elNativeVideo.style.display = 'block'; elNativeVideo.src = clean;
+            elNativeVideo.muted = !soundOn; elNativeVideo.volume = volume / 100;
+            elNativeVideo.play().catch(() => {});
+          }
+        } else if (ytId) {
+          activeVideoType = 'iframe';
+          if (elNativeVideo) { elNativeVideo.pause(); elNativeVideo.src = ''; elNativeVideo.style.display = 'none'; }
+          if (elYtIframe) {
+            elYtIframe.style.display = 'block';
+            const isHttp = window.location.protocol.startsWith('http');
+            const originParam = isHttp ? `&origin=${encodeURIComponent(window.location.origin)}` : '';
+            elYtIframe.src = `https://www.youtube.com/embed/${ytId}?autoplay=1&mute=${muteParam}&controls=1&loop=1&playlist=${ytId}&playsinline=1&enablejsapi=1&rel=0${originParam}`;
+          }
+        }
+
+        elBtnToggleYtAudio.style.display = 'inline-flex';
+        updateVideoAudioUI(soundOn);
+        if (elCheckYtSound) elCheckYtSound.checked = soundOn;
+        if (elSliderYtVol) elSliderYtVol.value = volume;
+        try { localStorage.setItem('flocus_preferences', JSON.stringify(prefs)); } catch(e){}
+      }
+
+      function clearVideoWallpaper(save = true) {
+        prefs.youtubeVideoId = ''; activeVideoType = 'none';
+        if (elNativeVideo) { elNativeVideo.pause(); elNativeVideo.src = ''; elNativeVideo.style.display = 'none'; }
+        if (elYtIframe) { elYtIframe.src = ''; elYtIframe.style.display = 'none'; }
+        elYtContainer.style.display = 'none';
+        if (elLiveCanvas) elLiveCanvas.style.opacity = '1';
+        elBtnToggleYtAudio.style.display = 'none';
+        if (save) { try { localStorage.setItem('flocus_preferences', JSON.stringify(prefs)); } catch(e){} }
+      }
+
+      function setVideoAudioState(soundOn) {
+        prefs.youtubeSoundOn = soundOn;
+        if (activeVideoType === 'native' && elNativeVideo) {
+          elNativeVideo.muted = !soundOn;
+          if (soundOn) elNativeVideo.volume = (prefs.youtubeVolume || 70) / 100;
+        } else if (activeVideoType === 'iframe' && elYtIframe && elYtIframe.contentWindow) {
+          if (soundOn) {
+            elYtIframe.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+            elYtIframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'setVolume', args: [prefs.youtubeVolume || 70] }), '*');
+          } else {
+            elYtIframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+          }
+        }
+        updateVideoAudioUI(soundOn);
+        if (elCheckYtSound) elCheckYtSound.checked = soundOn;
+        try { localStorage.setItem('flocus_preferences', JSON.stringify(prefs)); } catch(e){}
+      }
+
+      function updateVideoAudioUI(soundOn) {
+        if (soundOn) {
+          elYtAudioIcon.textContent = '🔊'; elYtAudioLabel.textContent = 'Video Sound: ON';
+          elBtnToggleYtAudio.classList.add('active');
+        } else {
+          elYtAudioIcon.textContent = '🔇'; elYtAudioLabel.textContent = 'Video Sound: Muted';
+          elBtnToggleYtAudio.classList.remove('active');
+        }
+      }
+
+      document.getElementById('btnApplyYoutube').addEventListener('click', () => {
+        audio.playClick();
+        const url = elInputYtUrl.value.trim();
+        if (url) {
+          loadVideoWallpaper(url, elCheckYtSound.checked, parseInt(elSliderYtVol.value, 10) || 70);
+          document.getElementById('modalScenes').classList.remove('open');
+        } else {
+          alert('Please enter a valid YouTube video or stream URL!');
+        }
+      });
+
+      document.getElementById('btnClearYoutube').addEventListener('click', () => {
+        audio.playClick(); elInputYtUrl.value = ''; clearVideoWallpaper(true);
+        wallpaper.setScene(prefs.activeScene);
+      });
+
+      elCheckYtSound.addEventListener('change', (e) => setVideoAudioState(e.target.checked));
+      elSliderYtVol.addEventListener('input', (e) => {
+        const v = parseInt(e.target.value, 10); prefs.youtubeVolume = v;
+        if (activeVideoType === 'native' && elNativeVideo) {
+          elNativeVideo.volume = v / 100;
+        } else if (activeVideoType === 'iframe' && elYtIframe && elYtIframe.contentWindow) {
+          elYtIframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'setVolume', args: [v] }), '*');
+        }
+        try { localStorage.setItem('flocus_preferences', JSON.stringify(prefs)); } catch(e){}
+      });
+      elBtnToggleYtAudio.addEventListener('click', () => { audio.playClick(); setVideoAudioState(!prefs.youtubeSoundOn); });
+
+      document.querySelectorAll('.direct-video-preset-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          audio.playClick(); const url = btn.dataset.url;
+          elInputYtUrl.value = url;
+          loadVideoWallpaper(url, elCheckYtSound.checked, parseInt(elSliderYtVol.value, 10) || 70);
+          document.getElementById('modalScenes').classList.remove('open');
+        });
+      });
+
+      document.querySelectorAll('.yt-preset-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          audio.playClick(); const id = btn.dataset.yt;
+          elInputYtUrl.value = `https://www.youtube.com/watch?v=${id}`;
+          loadVideoWallpaper(id, elCheckYtSound.checked, parseInt(elSliderYtVol.value, 10) || 70);
+          document.getElementById('modalScenes').classList.remove('open');
+        });
+      });
+
+      // Multi-Track Ambient Audio
+      function updateMixerBadge() {
+        let count = 0; Object.keys(audio.tracks).forEach(n => { if (audio.tracks[n].active) count++; });
+        if (count > 0) {
+          elActiveSoundsCount.style.display = 'inline-block'; elActiveSoundsCount.textContent = count;
+          document.getElementById('btnOpenMixer').classList.add('active');
+        } else {
+          elActiveSoundsCount.style.display = 'none';
+          document.getElementById('btnOpenMixer').classList.remove('active');
+        }
+      }
+
+      document.querySelectorAll('.mixer-track-row').forEach(row => {
+        const name = row.dataset.track;
+        row.querySelector('.track-toggle-btn').addEventListener('click', () => {
+          audio.init(); const active = audio.toggleTrack(name);
+          row.classList.toggle('active', active); updateMixerBadge();
+        });
+        row.querySelector('.track-vol-slider').addEventListener('input', (e) => {
+          audio.setTrackVolume(name, parseFloat(e.target.value));
+          if (!audio.tracks[name].active) { audio.startTrack(name); row.classList.add('active'); updateMixerBadge(); }
+        });
+      });
+
+      document.querySelectorAll('.preset-chip[data-preset]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          audio.init(); const p = btn.dataset.preset; audio.applyPreset(p);
+          document.querySelectorAll('.mixer-track-row').forEach(r => {
+            const tr = audio.tracks[r.dataset.track];
+            r.classList.toggle('active', tr.active);
+            r.querySelector('.track-vol-slider').value = tr.volume;
+          });
+          updateMixerBadge();
+        });
+      });
+
+      document.getElementById('btnStopAllSounds').addEventListener('click', () => {
+        audio.stopAllTracks();
+        document.querySelectorAll('.mixer-track-row').forEach(r => r.classList.remove('active'));
+        updateMixerBadge();
+      });
+
+      // Scenic Wallpaper Switcher
+      document.querySelectorAll('.scene-card').forEach(card => {
+        card.addEventListener('click', () => {
+          audio.playClick(); const sc = card.dataset.scene;
+          document.querySelectorAll('.scene-card').forEach(c => c.classList.remove('active'));
+          card.classList.add('active'); prefs.activeScene = sc;
+          clearVideoWallpaper(false);
+          wallpaper.setScene(sc);
+          try { localStorage.setItem('flocus_preferences', JSON.stringify(prefs)); } catch(e){}
+        });
+      });
+
+      document.getElementById('btnApplyCustomBg').addEventListener('click', () => {
+        const url = document.getElementById('inputCustomBgUrl').value.trim();
+        if (url) {
+          clearVideoWallpaper(false);
+          document.body.style.backgroundImage = `url('${url}')`;
+          document.body.style.backgroundSize = 'cover';
+          document.getElementById('modalScenes').classList.remove('open');
+        }
+      });
+
+      // Tasks
+      function renderTasks(taskList, activeTask) {
+        elActiveTaskBanner.textContent = activeTask ? `${activeTask.title} [🍅 ${activeTask.completedCount}/${activeTask.targetCount}]` : 'No task selected (Add or choose in Tasks)';
+        const list = document.getElementById('taskList'); list.innerHTML = '';
+        taskList.forEach(task => {
+          const li = document.createElement('li');
+          li.className = `task-item-card ${task.done ? 'done' : ''} ${activeTask && activeTask.id === task.id ? 'active' : ''}`;
+          li.innerHTML = `
+            <div style="display:flex; align-items:center; gap:10px; flex:1; overflow:hidden;">
+              <div class="task-check-box" data-id="${task.id}">${task.done ? '✓' : ''}</div>
+              <span class="task-text-span" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${task.title}</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:0.78rem; color:var(--text-muted); font-weight:600;">🍅 ${task.completedCount}/${task.targetCount}</span>
+              <button class="btn-close-modal" data-del="${task.id}" style="font-size:0.85rem;">✕</button>
+            </div>
+          `;
+          li.addEventListener('click', (e) => {
+            if (e.target.closest('.task-check-box')) tasks.toggleTask(task.id);
+            else if (e.target.closest('[data-del]')) tasks.deleteTask(task.id);
+            else tasks.setActiveTask(task.id);
+          });
+          list.appendChild(li);
+        });
+      }
+
+      document.getElementById('taskForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = document.getElementById('taskTitleInput');
+        const est = parseInt(document.getElementById('taskEstInput').value, 10) || 1;
+        if (input.value.trim()) { tasks.addTask(input.value.trim(), est); input.value = ''; }
+      });
+
+      // Modals
+      [
+        { b: 'btnOpenMixer', m: 'modalMixer' },
+        { b: 'btnOpenScenes', m: 'modalScenes' },
+        { b: 'btnOpenTasks', m: 'modalTasks' },
+        { b: 'btnOpenSettings', m: 'modalSettings' }
+      ].forEach(({ b, m }) => {
+        document.getElementById(b).addEventListener('click', () => { audio.playClick(); document.getElementById(m).classList.add('open'); });
+      });
+
+      document.querySelectorAll('[data-close]').forEach(b => {
+        b.addEventListener('click', () => document.getElementById(b.dataset.close).classList.remove('open'));
+      });
+      window.addEventListener('click', (e) => {
+        if (e.target.classList.contains('glass-modal-overlay')) e.target.classList.remove('open');
+      });
+
+      document.getElementById('btnSaveSettings').addEventListener('click', () => {
+        prefs.userName = document.getElementById('inputUserName').value.trim() || 'Aaqib Majid';
+        prefs.focusTime = parseInt(document.getElementById('inputFocusTime').value, 10) || 25;
+        prefs.shortBreakTime = parseInt(document.getElementById('inputShortBreak').value, 10) || 5;
+        prefs.longBreakTime = parseInt(document.getElementById('inputLongBreak').value, 10) || 15;
+        timer.updateDurations(prefs.focusTime, prefs.shortBreakTime, prefs.longBreakTime);
+        updateGreeting();
+        try { localStorage.setItem('flocus_preferences', JSON.stringify(prefs)); } catch(e){}
+        document.getElementById('modalSettings').classList.remove('open');
+      });
+
+      // Clear Mode
+      const toggleClear = () => document.body.classList.toggle('clear-mode');
+      document.getElementById('btnClearMode').addEventListener('click', toggleClear);
+      document.getElementById('btnExitClear').addEventListener('click', toggleClear);
+
+      window.addEventListener('keydown', (e) => {
+        if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+        if (e.code === 'Space') { e.preventDefault(); timer.toggle(); }
+        else if (e.key.toLowerCase() === 'r') timer.reset();
+        else if (e.key.toLowerCase() === 's') timer.skip();
+        else if (e.key.toLowerCase() === 't') cycleTimerFont();
+        else if (e.key.toLowerCase() === 'z') toggleClear();
+      });
+
+      applyTheme(prefs.theme || 'lyra');
+      syncEngineButtons();
+      applyTimerFont(prefs.timerFont || 'modern');
+      updateGreeting();
+      refreshStats();
+      renderTasks(tasks.tasks, tasks.getActiveTask());
+      setViewMode(prefs.currentView);
+      timer.reset();
+
+      // Restore video wallpaper if previously set
+      if (prefs.youtubeVideoId) {
+        if (elInputYtUrl) elInputYtUrl.value = prefs.youtubeVideoId.length === 11 ? `https://www.youtube.com/watch?v=${prefs.youtubeVideoId}` : prefs.youtubeVideoId;
+        loadVideoWallpaper(prefs.youtubeVideoId, prefs.youtubeSoundOn, prefs.youtubeVolume);
+      }
+    });
+  </script>
+</body>
+</html>
