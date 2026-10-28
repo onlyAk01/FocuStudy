@@ -1,12 +1,12 @@
-# ☕ Flocus-Inspired Aesthetic Pomodoro & Live Ambient Sanctuary
+# ☕ Aesthetic Pomodoro & Live Ambient Sanctuary
 
-A minimalist, aesthetic focus sanctuary crafted with frosted glassmorphism, procedural scenic live wallpapers, and a multi-track ambient sound mixer inspired by **[Flocus](https://app.flocus.com/)**.
+A minimalist, aesthetic focus sanctuary crafted with frosted glassmorphism, procedural scenic live wallpapers, and a multi-track ambient sound mixer 
 
 Designed and Made by **Aaqib Majid**.
 
 ---
 
-## ✨ Flocus-Inspired Features
+## ✨  Features
 
 ### 1. 🖼️ Atmospheric Live Scenic & YouTube Wallpapers
 Full-screen, GPU-accelerated animated canvas wallpapers and live video streaming:
